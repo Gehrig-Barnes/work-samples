@@ -216,3 +216,27 @@ Filter chain halted as :authorize rendered or redirected
 Completed 401 Unauthorized in 11ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 5432)
 
 
+Started POST "/login" for ::1 at 2022-05-14 14:16:09 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login as */*
+  Parameters: {"email"=>"jen@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"jen@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `login'
+Completed 500 Internal Server Error in 264ms (ActiveRecord: 0.5ms | Allocations: 25022)
+
+
+  
+ActionDispatch::Request::Session::DisabledSessionError (Your application has sessions disabled. To write to the session you must first configure a session store):
+  
+app/controllers/sessions_controller.rb:8:in `login'
+Started POST "/login" for ::1 at 2022-05-14 14:20:49 -0500
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login as */*
+  Parameters: {"email"=>"jen@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"jen@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `login'
+Completed 200 OK in 259ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 24765)
+
+
