@@ -5,7 +5,6 @@ function LoginForm({onLogin}){
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [name, setName] = useState("")
 
     function handleSubmit(e){
         e.preventDefault();
@@ -27,7 +26,7 @@ function LoginForm({onLogin}){
     return (
         <div>
             <h1>ADNAT</h1>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <input
                     type="email"
                     placeholder='email'
