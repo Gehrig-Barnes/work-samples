@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
+import Login from './components/Login'
 
 
 function App() {
@@ -26,6 +27,12 @@ function App() {
     // Navigate to home page after logout and clear history
     navigate("/");
 }
+
+if (!user) return (
+  <>
+  <Login onLogin={setUser}/>
+  </>
+)
 
 
   return (
