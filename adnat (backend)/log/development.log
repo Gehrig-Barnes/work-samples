@@ -191,3 +191,28 @@ FOREIGN KEY ("user_id")
   [1m[36mShift Load (0.2ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" ORDER BY "shifts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
   [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/follows" for ::1 at 2022-05-14 12:43:03 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/follows"):
+  
+Started GET "/favicon.ico" for ::1 at 2022-05-14 12:43:03 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for ::1 at 2022-05-14 12:43:07 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/gehrig/.rvm/gems/ruby-2.7.4/gems/railties-7.0.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/gehrig/.rvm/gems/ruby-2.7.4/gems/railties-7.0.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.9ms | Allocations: 377)
+Completed 200 OK in 8ms (Views: 1.7ms | ActiveRecord: 0.0ms | Allocations: 3676)
+
+
+Started GET "/me" for ::1 at 2022-05-14 12:43:17 -0500
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 11ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 5432)
+
+
