@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Login from './components/Login'
+import Organizations from "./components/Organizations";
 
 
 function App() {
@@ -30,12 +31,11 @@ function App() {
 
   function renderSelectOrg () {
     const  {organisation_id } = user
-    console.table(user)
     if(organisation_id){
       return <h1>Your org here</h1>
     }
 
-    return <h1>List of orgs to join</h1>
+    return <Organizations user={user}/>
     //if user.organization is null, then render out org select component.
     //e
   }
