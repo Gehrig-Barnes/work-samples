@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 
-function OrgCard ({name}){
-    console.log(name)
+function OrgCard ({ orgData, setShowEditForm }){
+
+    
+    
     return (
         <div>
-            <ul>
-                <li>{name}</li>
-            </ul>
+            
+            <h5>{orgData.name}</h5>
+            <button onClick={(e) =>  setShowEditForm({show:true, org: orgData})}>Edit</button>
         </div>
     )
 }

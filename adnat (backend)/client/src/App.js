@@ -2,10 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Login from './components/Login'
 import Organizations from "./components/Organizations";
+import EditOrg from "./components/EditOrg";
 
 
 function App() {
   const [user, setUser] = useState(null)
+  const [showEditForm, setShowEditForm] = useState({
+    show: false,
+    org: null
+  })
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -35,7 +40,7 @@ function App() {
       return <h1>Your org here</h1>
     }
 
-    return <Organizations user={user}/>
+    return (!showEditForm.show ? <Organizations setShowEditForm={setShowEditForm} user={user}/> : <EditOrg setShowEditForm={setShowEditForm} org={showEditForm.org}/> )
     //if user.organization is null, then render out org select component.
     //e
   }
