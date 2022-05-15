@@ -28,6 +28,18 @@ function App() {
     navigate("/");
 }
 
+  function renderSelectOrg () {
+    const  {organisation_id } = user
+    console.table(user)
+    if(organisation_id){
+      return <h1>Your org here</h1>
+    }
+
+    return <h1>List of orgs to join</h1>
+    //if user.organization is null, then render out org select component.
+    //e
+  }
+
 if (!user) return (
   <>
   <Login onLogin={setUser}/>
@@ -38,7 +50,9 @@ if (!user) return (
   return (
     <div className="App">
       hello world
+      <button onClick={handleLogOutClick}>Logout</button>
       <Routes></Routes>
+      {renderSelectOrg()}
     </div>
   );
 }

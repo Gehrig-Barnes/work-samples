@@ -48,9 +48,13 @@ function SignUpForm({onLogin}){
                 ></input><br></br>
                 <input 
                     type="text" placeholder="password"
+                    value = {password}
+                    onChange={(e) => setPassword(e.target.value)}
                 ></input><br></br>
                 <input 
                     type="text" placeholder="password confirmation"
+                    value = {passwordConfirmation}
+                    onChange={(e) => setPasswordConfirmation(e.target.value)}
                 ></input><br></br>
                 <input type="submit" value="signup"></input>
             </form>

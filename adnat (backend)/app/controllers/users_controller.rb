@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        render json: current_user, include: :stores, except: [:created_at, :updated_at], status: :ok
+        render json: current_user, status: :ok
     end
 
     def update
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(:username, :password, :password_confirmation, :address, :email, :phone)
+        params.permit(:name, :password, :password_confirmation, :email)
     end
-    # hello
+
 end
