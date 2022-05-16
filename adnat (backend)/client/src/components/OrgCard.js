@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 
-function OrgCard ({ orgData, setShowEditForm, userId }){
-    const [orgId, setOrgId] = useState(null)
-    console.log(orgId)
+function OrgCard ({ orgData, setShowEditForm, userId, setUser}){
+    
 
-    const submitHandler = (e) => {
-        e.preventDefault()
+    const joinOrgHandler = (orgId) => {
         fetch(`/join/${userId}`, {
             method: 'PATCH',
             body: JSON.stringify({
@@ -15,9 +13,8 @@ function OrgCard ({ orgData, setShowEditForm, userId }){
                 'Content-Type': 'application/json',
             },
         })
-        .then((r) => console.log(r.json()))
-        .then((data) => console.log(data))
-        
+        .then((r) => r.json())
+        .then((data) => setUser(data))
     }
     
     return (
@@ -25,9 +22,8 @@ function OrgCard ({ orgData, setShowEditForm, userId }){
             
             <h4>{orgData.name}</h4>
             <button onClick={(e) =>  setShowEditForm({show:true, org: orgData})}>Edit</button>
-            <form onSubmit={submitHandler}>
-                <button type="submit" onClick={(e) => setOrgId(orgData.id)}>Join</button>
-            </form>
+            <button onClick={(e) => joinOrgHandler(orgData.id)}>Join</button>
+
         </div>
     )
 }

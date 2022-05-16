@@ -32,8 +32,6 @@ function App() {
             setUser(null);
         }
     });
-    // Navigate to home page after logout and clear history
-    navigate("/");
 }
 
   function renderSelectOrg () {
@@ -48,6 +46,7 @@ function App() {
       <Organizations 
         setShowEditForm={setShowEditForm} 
         user={user}
+        setUser={setUser}
       />
 
       <CreateOrg/> 

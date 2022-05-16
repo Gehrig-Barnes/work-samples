@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { createRoutesFromChildren } from "react-router-dom";
 import OrgCard from './OrgCard'
 
-function Organizations ({user, setShowEditForm}){
+function Organizations ({user, setShowEditForm, setUser}){
     console.log(user.orgs)
     return (
         <div> list of Orgs
@@ -17,6 +17,7 @@ function Organizations ({user, setShowEditForm}){
                             orgData={org}
                             setShowEditForm={setShowEditForm}
                             userId={user?.id}
+                            setUser={setUser}
                         />
                     )
                 })}

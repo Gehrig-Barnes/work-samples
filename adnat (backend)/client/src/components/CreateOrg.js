@@ -1,9 +1,11 @@
-import React from "react";
-
-//TODO
-//CREATE A REQUEST TO THE BACK END TO CREATE AND THEN UPDATE
+import React, { useState } from "react";
 
 function CreateOrg(){
+    const [newOrg, setNewOrg] = useState({
+        name: '',
+        hourly_rate: 0
+    })
+
     return (
         <div>
             <h1>Create an Org</h1>
