@@ -14,6 +14,7 @@ function EditOrg({setShowEditForm, org}){
         }
     })
 
+    console.log(org.id)
     const submitHandler = (e) => {
         e.preventDefault()
         fetch(`/organisations/${org.id}`, {
@@ -30,10 +31,15 @@ function EditOrg({setShowEditForm, org}){
         .then((data) => console.log(data))
         .then(window.location.reload())
     }
-    // TODO
-    // - fill out the submit handler "fetch"
-    // - id, METHOD, HEADERS, BODY,
-    // - console.log the whole req 
+    
+    function deleteOrgHandle(){
+        fetch(`/organisations/${org.id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+    }
 
     
 
@@ -49,6 +55,7 @@ function EditOrg({setShowEditForm, org}){
                 <button onClick={() => setShowEditForm({show:false, org:null})}>cancel</button>
                 <input type="submit" value="update"/>
             </form>
+            <button onClick={() => deleteOrgHandle()}>Delete</button>
             
         </>
         

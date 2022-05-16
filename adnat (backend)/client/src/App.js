@@ -49,7 +49,7 @@ function App() {
         setUser={setUser}
       />
 
-      <CreateOrg/> 
+      <CreateOrg setUser={setUser}/> 
 
     </>: 
     
