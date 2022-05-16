@@ -16,6 +16,7 @@ function Organizations ({user, setShowEditForm}){
                             key={org.id}
                             orgData={org}
                             setShowEditForm={setShowEditForm}
+                            userId={user?.id}
                         />
                     )
                 })}

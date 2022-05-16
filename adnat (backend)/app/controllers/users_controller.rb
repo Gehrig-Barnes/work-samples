@@ -20,10 +20,20 @@ class UsersController < ApplicationController
         render json: current_user, status: :ok
     end
 
+    def join
+        user = User.find(params[:id])
+         user.update!(join_param)
+        render json: user, status: :ok
+    end
+
     private
 
     def user_params
         params.permit(:name, :password, :password_confirmation, :email)
+    end
+
+    def join_param
+        params.permit(:organisation_id)
     end
 
 end

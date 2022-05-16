@@ -3,6 +3,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import Login from './components/Login'
 import Organizations from "./components/Organizations";
 import EditOrg from "./components/EditOrg";
+import CreateOrg from "./components/CreateOrg";
 
 
 function App() {
@@ -11,6 +12,8 @@ function App() {
     show: false,
     org: null
   })
+
+  
 
   useEffect(() => {
     // auto-login
@@ -39,9 +42,22 @@ function App() {
       return <h1>Your org here</h1>
     }
 
-    return (!showEditForm.show ? <Organizations setShowEditForm={setShowEditForm} user={user}/> : <EditOrg setShowEditForm={setShowEditForm} org={showEditForm.org}/> )
-    //if user.organization is null, then render out org select component.
-    //e
+    return (!showEditForm.show ? 
+    
+    <>
+      <Organizations 
+        setShowEditForm={setShowEditForm} 
+        user={user}
+      />
+
+      <CreateOrg/> 
+
+    </>: 
+    
+    <EditOrg 
+      setShowEditForm={setShowEditForm} 
+      org={showEditForm.org}
+    /> )
   }
 
 if (!user) return (
