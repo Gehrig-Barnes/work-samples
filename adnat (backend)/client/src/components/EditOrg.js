@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react'
 
 
 function EditOrg({setShowEditForm, org}){
-    // const [organization, setOrganization] = useState(null);
     const [orgData, setOrgData] = useState({
         name: org.name,
         hourly_rate: org.hourly_rate
@@ -20,8 +19,6 @@ function EditOrg({setShowEditForm, org}){
         console.log(orgData);
     }
     // TODO
-    // - Wire up the hourly rate input
-    // - GO TO BACKEND ****
     // - fill out the submit handler "fetch"
     // - id, METHOD, HEADERS, BODY,
     // - console.log the whole req 

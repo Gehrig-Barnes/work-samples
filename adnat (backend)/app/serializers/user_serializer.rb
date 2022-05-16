@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :email, :name, :orgs
+  attributes :id, :email, :name, :orgs, :organisation_id
   has_many :shifts
   belongs_to :organisation
 

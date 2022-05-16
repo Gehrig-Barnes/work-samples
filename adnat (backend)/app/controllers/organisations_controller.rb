@@ -1,10 +1,14 @@
 class OrganisationsController < ApplicationController
 
     def update
-        # create route if not one already 'PATCH /organisation/:id
-        #find by id
-        #if found update and send back a JSON response (dont forget bad req error)
-        #validations?
-        #if not send an error, not found
+        org = Organisation.find(params[:id])
+        org.update!(org_params)
+        render json: org, status: :ok
+    end
+
+    private
+
+    def org_params
+        params.permit(:name, :hourly_rate)
     end
 end

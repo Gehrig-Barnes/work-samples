@@ -11,7 +11,6 @@ function App() {
     show: false,
     org: null
   })
-  const navigate = useNavigate()
 
   useEffect(() => {
     // auto-login
@@ -56,7 +55,6 @@ if (!user) return (
     <div className="App">
       hello world
       <button onClick={handleLogOutClick}>Logout</button>
-      <Routes></Routes>
       {renderSelectOrg()}
     </div>
   );
