@@ -16,14 +16,26 @@ function EditOrg({setShowEditForm, org}){
 
     const submitHandler = (e) => {
         e.preventDefault()
-        console.log(orgData);
+        fetch(`/organisations/${org.id}`, {
+            method: 'PATCH',
+            body: JSON.stringify({
+                name: orgData.name,
+                hourly_rate: orgData.hourly_rate
+            }),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then((r) => console.log(r.json()))
+        .then((data) => console.log(data))
+        .then(window.location.reload())
     }
     // TODO
     // - fill out the submit handler "fetch"
     // - id, METHOD, HEADERS, BODY,
     // - console.log the whole req 
 
-    console.log(org)
+    
 
       
     return (

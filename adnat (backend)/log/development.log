@@ -21393,3 +21393,514 @@ Started GET "/organisation" for 127.0.0.1 at 2022-05-16 09:54:44 -0500
   
 ActionController::RoutingError (No route matches [GET] "/organisation"):
   
+Started GET "/me" for 127.0.0.1 at 2022-05-16 10:05:50 -0500
+Processing by UsersController#show as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mShift Load (2.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 4]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (11.83ms)
+Completed 200 OK in 46ms (Views: 13.1ms | ActiveRecord: 3.1ms | Allocations: 11439)
+
+
+Started PATCH "/organisation/1" for 127.0.0.1 at 2022-05-16 10:06:01 -0500
+  
+ActionController::RoutingError (No route matches [PATCH] "/organisation/1"):
+  
+Started GET "/" for ::1 at 2022-05-16 10:06:35 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/gehrig/.rvm/gems/ruby-2.7.4/gems/railties-7.0.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/gehrig/.rvm/gems/ruby-2.7.4/gems/railties-7.0.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 10.1ms | Allocations: 567)
+Completed 200 OK in 24ms (Views: 12.9ms | ActiveRecord: 0.0ms | Allocations: 5025)
+
+
+Started GET "/" for ::1 at 2022-05-16 10:06:46 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/gehrig/.rvm/gems/ruby-2.7.4/gems/railties-7.0.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/gehrig/.rvm/gems/ruby-2.7.4/gems/railties-7.0.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 4.6ms | Allocations: 368)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms | Allocations: 1092)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-16 10:07:15 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mShift Load (0.2ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 4]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (13.25ms)
+Completed 200 OK in 36ms (Views: 19.3ms | ActiveRecord: 1.6ms | Allocations: 38428)
+
+
+Started PATCH "/organisation/1" for 127.0.0.1 at 2022-05-16 10:07:23 -0500
+  
+ActionController::RoutingError (No route matches [PATCH] "/organisation/1"):
+  
+Started PATCH "/organisation/1" for ::1 at 2022-05-16 10:07:47 -0500
+  
+ActionController::RoutingError (No route matches [PATCH] "/organisation/1"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-05-16 10:08:02 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mShift Load (0.4ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 4]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (11.5ms)
+Completed 200 OK in 18ms (Views: 12.8ms | ActiveRecord: 1.1ms | Allocations: 3592)
+
+
+Started PATCH "/organisation/1" for ::1 at 2022-05-16 10:08:04 -0500
+  
+ActionController::RoutingError (No route matches [PATCH] "/organisation/1"):
+  
+Started PATCH "/organisation/1" for ::1 at 2022-05-16 10:08:51 -0500
+  
+ActionController::RoutingError (No route matches [PATCH] "/organisation/1"):
+  
+Started PATCH "/organisations/1" for ::1 at 2022-05-16 10:09:31 -0500
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrganisationsController#update as */*
+  Parameters: {"orgData"=>{"name"=>"Burger King", "hourly_rate"=>"9"}, "id"=>"1", "organisation"=>{}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 7ms (Views: 2.3ms | ActiveRecord: 0.6ms | Allocations: 4167)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-16 10:15:18 -0500
+Processing by UsersController#show as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mShift Load (0.4ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 4]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (0.3ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (11.91ms)
+Completed 200 OK in 35ms (Views: 13.2ms | ActiveRecord: 4.8ms | Allocations: 8460)
+
+
+Started PATCH "/organisations/1" for ::1 at 2022-05-16 10:15:23 -0500
+Processing by OrganisationsController#update as */*
+  Parameters: {"name"=>"Burger King", "hourly_rate"=>"9", "id"=>"1", "organisation"=>{"name"=>"Burger King", "hourly_rate"=>"9"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.18ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 1.9ms | ActiveRecord: 0.3ms | Allocations: 1331)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-05-16 10:15:28 -0500
+Processing by SessionsController#logout as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+Completed 204 No Content in 3ms (ActiveRecord: 0.5ms | Allocations: 689)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-05-16 10:15:35 -0500
+Processing by SessionsController#login as */*
+  Parameters: {"email"=>"a@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"a@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "a@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `login'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mShift Load (0.9ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 4]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:9:in `login'
+[active_model_serializers]   [1m[36mOrganisation Load (0.4ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:9:in `login'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (4.26ms)
+Completed 200 OK in 284ms (Views: 4.5ms | ActiveRecord: 2.0ms | Allocations: 3385)
+
+
+Started PATCH "/organisations/1" for ::1 at 2022-05-16 10:15:53 -0500
+Processing by OrganisationsController#update as */*
+  Parameters: {"name"=>"Burger King", "hourly_rate"=>"9", "id"=>"1", "organisation"=>{"name"=>"Burger King", "hourly_rate"=>"9"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 9ms (Views: 1.4ms | ActiveRecord: 0.2ms | Allocations: 1312)
+
+
+Started PATCH "/organisations/1" for ::1 at 2022-05-16 10:19:09 -0500
+  
+NoMethodError (undefined method `before_filter' for OrganisationsController:Class
+Did you mean?  before_action):
+  
+app/controllers/organisations_controller.rb:3:in `<class:OrganisationsController>'
+app/controllers/organisations_controller.rb:1:in `<main>'
+Started PATCH "/organisations/1" for ::1 at 2022-05-16 10:19:26 -0500
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrganisationsController#update as */*
+  Parameters: {"name"=>"Burger King", "hourly_rate"=>"9", "id"=>"1", "organisation"=>{"name"=>"Burger King", "hourly_rate"=>"9"}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 5ms (Views: 0.9ms | ActiveRecord: 0.6ms | Allocations: 3969)
+
+
+Started PATCH "/organisations/1" for ::1 at 2022-05-16 10:19:34 -0500
+  
+ArgumentError (Before process_action callback :authenticate_user! has not been defined):
+  
+app/controllers/organisations_controller.rb:3:in `<class:OrganisationsController>'
+app/controllers/organisations_controller.rb:1:in `<main>'
+Started PATCH "/organisations/1" for ::1 at 2022-05-16 10:19:45 -0500
+  
+ArgumentError (Before process_action callback :authenticate_user has not been defined):
+  
+app/controllers/organisations_controller.rb:3:in `<class:OrganisationsController>'
+app/controllers/organisations_controller.rb:1:in `<main>'
+Started PATCH "/organisations/1" for ::1 at 2022-05-16 10:19:55 -0500
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrganisationsController#update as */*
+  Parameters: {"name"=>"Burger King", "hourly_rate"=>"9", "id"=>"1", "organisation"=>{"name"=>"Burger King", "hourly_rate"=>"9"}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 5ms (Views: 0.8ms | ActiveRecord: 0.6ms | Allocations: 3959)
+
+
+Started PATCH "/organisations/1" for 127.0.0.1 at 2022-05-16 10:23:04 -0500
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrganisationsController#update as */*
+  Parameters: {"name"=>"Burger King", "hourly_rate"=>"9", "id"=>"1", "organisation"=>{"name"=>"Burger King", "hourly_rate"=>"9"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mOrganisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/organisations_controller.rb:4:in `update'
+[31mUnpermitted parameters: :id, :organisation. Context: { controller: OrganisationsController, action: update, request: #<ActionDispatch::Request:0x000000010aa7d1a8>, params: {"name"=>"Burger King", "hourly_rate"=>"9", "controller"=>"organisations", "action"=>"update", "id"=>"1", "organisation"=>{"name"=>"Burger King", "hourly_rate"=>"9"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/organisations_controller.rb:5:in `update'
+  [1m[36mOrganisation Update (0.3ms)[0m  [1m[33mUPDATE "organisations" SET "hourly_rate" = ?, "updated_at" = ? WHERE "organisations"."id" = ?[0m  [["hourly_rate", 9.0], ["updated_at", "2022-05-16 15:23:04.307617"], ["id", 1]]
+  ↳ app/controllers/organisations_controller.rb:5:in `update'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/organisations_controller.rb:5:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Organisation (0.13ms)
+Completed 200 OK in 13ms (Views: 1.0ms | ActiveRecord: 2.1ms | Allocations: 8781)
+
+
+Started PATCH "/organisations/1" for 127.0.0.1 at 2022-05-16 10:23:25 -0500
+Processing by OrganisationsController#update as */*
+  Parameters: {"name"=>"Burger King", "hourly_rate"=>"9", "id"=>"1", "organisation"=>{"name"=>"Burger King", "hourly_rate"=>"9"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/organisations_controller.rb:4:in `update'
+[31mUnpermitted parameters: :id, :organisation. Context: { controller: OrganisationsController, action: update, request: #<ActionDispatch::Request:0x000000011adb15d0>, params: {"name"=>"Burger King", "hourly_rate"=>"9", "controller"=>"organisations", "action"=>"update", "id"=>"1", "organisation"=>{"name"=>"Burger King", "hourly_rate"=>"9"}} }[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Organisation (0.33ms)
+Completed 200 OK in 12ms (Views: 2.2ms | ActiveRecord: 0.5ms | Allocations: 1962)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-16 10:23:30 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mShift Load (0.4ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 4]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (8.43ms)
+Completed 200 OK in 17ms (Views: 12.4ms | ActiveRecord: 1.3ms | Allocations: 5767)
+
+
+Started PATCH "/organisations/1" for 127.0.0.1 at 2022-05-16 10:23:39 -0500
+Processing by OrganisationsController#update as */*
+  Parameters: {"name"=>"Burger King", "hourly_rate"=>"10", "id"=>"1", "organisation"=>{"name"=>"Burger King", "hourly_rate"=>"10"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/organisations_controller.rb:4:in `update'
+[31mUnpermitted parameters: :id, :organisation. Context: { controller: OrganisationsController, action: update, request: #<ActionDispatch::Request:0x000000010a9f6680>, params: {"name"=>"Burger King", "hourly_rate"=>"10", "controller"=>"organisations", "action"=>"update", "id"=>"1", "organisation"=>{"name"=>"Burger King", "hourly_rate"=>"10"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/organisations_controller.rb:5:in `update'
+  [1m[36mOrganisation Update (0.3ms)[0m  [1m[33mUPDATE "organisations" SET "hourly_rate" = ?, "updated_at" = ? WHERE "organisations"."id" = ?[0m  [["hourly_rate", 10.0], ["updated_at", "2022-05-16 15:23:39.688441"], ["id", 1]]
+  ↳ app/controllers/organisations_controller.rb:5:in `update'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/organisations_controller.rb:5:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Organisation (0.78ms)
+Completed 200 OK in 23ms (Views: 4.5ms | ActiveRecord: 1.5ms | Allocations: 3488)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-16 10:23:47 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mShift Load (0.4ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 4]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (0.5ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (5.56ms)
+Completed 200 OK in 16ms (Views: 6.2ms | ActiveRecord: 1.3ms | Allocations: 3564)
+
+
+Started PATCH "/organisations/1" for 127.0.0.1 at 2022-05-16 10:24:02 -0500
+Processing by OrganisationsController#update as */*
+  Parameters: {"name"=>"Burger King", "hourly_rate"=>"9", "id"=>"1", "organisation"=>{"name"=>"Burger King", "hourly_rate"=>"9"}}
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/organisations_controller.rb:4:in `update'
+[31mUnpermitted parameters: :id, :organisation. Context: { controller: OrganisationsController, action: update, request: #<ActionDispatch::Request:0x000000010a997f90>, params: {"name"=>"Burger King", "hourly_rate"=>"9", "controller"=>"organisations", "action"=>"update", "id"=>"1", "organisation"=>{"name"=>"Burger King", "hourly_rate"=>"9"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/organisations_controller.rb:5:in `update'
+  [1m[36mOrganisation Update (1.2ms)[0m  [1m[33mUPDATE "organisations" SET "hourly_rate" = ?, "updated_at" = ? WHERE "organisations"."id" = ?[0m  [["hourly_rate", 9.0], ["updated_at", "2022-05-16 15:24:02.048527"], ["id", 1]]
+  ↳ app/controllers/organisations_controller.rb:5:in `update'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/organisations_controller.rb:5:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Organisation (0.47ms)
+Completed 200 OK in 30ms (Views: 2.2ms | ActiveRecord: 8.4ms | Allocations: 3485)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-16 10:24:04 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mShift Load (0.3ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 4]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (4.78ms)
+Completed 200 OK in 7ms (Views: 4.9ms | ActiveRecord: 0.5ms | Allocations: 3571)
+
+
+Started PATCH "/organisations/1" for 127.0.0.1 at 2022-05-16 10:24:34 -0500
+Processing by OrganisationsController#update as */*
+  Parameters: {"name"=>"Burger King", "hourly_rate"=>"8", "id"=>"1", "organisation"=>{"name"=>"Burger King", "hourly_rate"=>"8"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/organisations_controller.rb:4:in `update'
+[31mUnpermitted parameters: :id, :organisation. Context: { controller: OrganisationsController, action: update, request: #<ActionDispatch::Request:0x000000010a953160>, params: {"name"=>"Burger King", "hourly_rate"=>"8", "controller"=>"organisations", "action"=>"update", "id"=>"1", "organisation"=>{"name"=>"Burger King", "hourly_rate"=>"8"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/organisations_controller.rb:5:in `update'
+  [1m[36mOrganisation Update (0.3ms)[0m  [1m[33mUPDATE "organisations" SET "hourly_rate" = ?, "updated_at" = ? WHERE "organisations"."id" = ?[0m  [["hourly_rate", 8.0], ["updated_at", "2022-05-16 15:24:34.325508"], ["id", 1]]
+  ↳ app/controllers/organisations_controller.rb:5:in `update'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/organisations_controller.rb:5:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Organisation (0.25ms)
+Completed 200 OK in 10ms (Views: 1.5ms | ActiveRecord: 1.5ms | Allocations: 3485)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-16 10:25:05 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mShift Load (0.2ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 4]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (6.04ms)
+Completed 200 OK in 16ms (Views: 9.6ms | ActiveRecord: 1.1ms | Allocations: 3573)
+
+
+Started PATCH "/organisations/1" for 127.0.0.1 at 2022-05-16 10:25:10 -0500
+Processing by OrganisationsController#update as */*
+  Parameters: {"name"=>"Burger King", "hourly_rate"=>"10", "id"=>"1", "organisation"=>{"name"=>"Burger King", "hourly_rate"=>"10"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/organisations_controller.rb:4:in `update'
+[31mUnpermitted parameters: :id, :organisation. Context: { controller: OrganisationsController, action: update, request: #<ActionDispatch::Request:0x000000011aca0858>, params: {"name"=>"Burger King", "hourly_rate"=>"10", "controller"=>"organisations", "action"=>"update", "id"=>"1", "organisation"=>{"name"=>"Burger King", "hourly_rate"=>"10"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/organisations_controller.rb:5:in `update'
+  [1m[36mOrganisation Update (0.4ms)[0m  [1m[33mUPDATE "organisations" SET "hourly_rate" = ?, "updated_at" = ? WHERE "organisations"."id" = ?[0m  [["hourly_rate", 10.0], ["updated_at", "2022-05-16 15:25:10.107581"], ["id", 1]]
+  ↳ app/controllers/organisations_controller.rb:5:in `update'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/organisations_controller.rb:5:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Organisation (0.25ms)
+Completed 200 OK in 11ms (Views: 1.5ms | ActiveRecord: 1.4ms | Allocations: 3482)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-16 10:25:18 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 4]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (3.25ms)
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 0.4ms | Allocations: 3567)
+
+
+Started PATCH "/organisations/1" for 127.0.0.1 at 2022-05-16 10:25:22 -0500
+Processing by OrganisationsController#update as */*
+  Parameters: {"name"=>"Burger King", "hourly_rate"=>"8", "id"=>"1", "organisation"=>{"name"=>"Burger King", "hourly_rate"=>"8"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mOrganisation Load (1.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/organisations_controller.rb:4:in `update'
+[31mUnpermitted parameters: :id, :organisation. Context: { controller: OrganisationsController, action: update, request: #<ActionDispatch::Request:0x000000011abf7d70>, params: {"name"=>"Burger King", "hourly_rate"=>"8", "controller"=>"organisations", "action"=>"update", "id"=>"1", "organisation"=>{"name"=>"Burger King", "hourly_rate"=>"8"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/organisations_controller.rb:5:in `update'
+  [1m[36mOrganisation Update (0.5ms)[0m  [1m[33mUPDATE "organisations" SET "hourly_rate" = ?, "updated_at" = ? WHERE "organisations"."id" = ?[0m  [["hourly_rate", 8.0], ["updated_at", "2022-05-16 15:25:22.588920"], ["id", 1]]
+  ↳ app/controllers/organisations_controller.rb:5:in `update'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/organisations_controller.rb:5:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Organisation (0.21ms)
+Completed 200 OK in 14ms (Views: 1.5ms | ActiveRecord: 4.0ms | Allocations: 3480)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-16 10:25:39 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mShift Load (0.2ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 4]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (8.36ms)
+Completed 200 OK in 18ms (Views: 9.3ms | ActiveRecord: 0.7ms | Allocations: 3561)
+
+
+Started PATCH "/organisations/1" for 127.0.0.1 at 2022-05-16 10:26:17 -0500
+Processing by OrganisationsController#update as */*
+  Parameters: {"name"=>"Burger King", "hourly_rate"=>"9", "id"=>"1", "organisation"=>{"name"=>"Burger King", "hourly_rate"=>"9"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/organisations_controller.rb:4:in `update'
+[31mUnpermitted parameters: :id, :organisation. Context: { controller: OrganisationsController, action: update, request: #<ActionDispatch::Request:0x0000000120c0b518>, params: {"name"=>"Burger King", "hourly_rate"=>"9", "controller"=>"organisations", "action"=>"update", "id"=>"1", "organisation"=>{"name"=>"Burger King", "hourly_rate"=>"9"}} }[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/organisations_controller.rb:5:in `update'
+  [1m[36mOrganisation Update (0.8ms)[0m  [1m[33mUPDATE "organisations" SET "hourly_rate" = ?, "updated_at" = ? WHERE "organisations"."id" = ?[0m  [["hourly_rate", 9.0], ["updated_at", "2022-05-16 15:26:17.350088"], ["id", 1]]
+  ↳ app/controllers/organisations_controller.rb:5:in `update'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/organisations_controller.rb:5:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Organisation (0.25ms)
+Completed 200 OK in 18ms (Views: 1.2ms | ActiveRecord: 2.7ms | Allocations: 3485)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-16 10:26:17 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mShift Load (0.3ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 4]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (3.41ms)
+Completed 200 OK in 6ms (Views: 3.6ms | ActiveRecord: 0.5ms | Allocations: 3571)
+
+
+Started PATCH "/organisations/1" for 127.0.0.1 at 2022-05-16 10:26:27 -0500
+Processing by OrganisationsController#update as */*
+  Parameters: {"name"=>"Burger King", "hourly_rate"=>"6", "id"=>"1", "organisation"=>{"name"=>"Burger King", "hourly_rate"=>"6"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/organisations_controller.rb:4:in `update'
+[31mUnpermitted parameters: :id, :organisation. Context: { controller: OrganisationsController, action: update, request: #<ActionDispatch::Request:0x0000000120582f70>, params: {"name"=>"Burger King", "hourly_rate"=>"6", "controller"=>"organisations", "action"=>"update", "id"=>"1", "organisation"=>{"name"=>"Burger King", "hourly_rate"=>"6"}} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/organisations_controller.rb:5:in `update'
+  [1m[36mOrganisation Update (0.5ms)[0m  [1m[33mUPDATE "organisations" SET "hourly_rate" = ?, "updated_at" = ? WHERE "organisations"."id" = ?[0m  [["hourly_rate", 6.0], ["updated_at", "2022-05-16 15:26:27.493930"], ["id", 1]]
+  ↳ app/controllers/organisations_controller.rb:5:in `update'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/organisations_controller.rb:5:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Organisation (0.3ms)
+Completed 200 OK in 24ms (Views: 4.2ms | ActiveRecord: 2.1ms | Allocations: 3487)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-16 10:26:27 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 4]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (0.3ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (15.86ms)
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 0.6ms | Allocations: 3574)
+
+
