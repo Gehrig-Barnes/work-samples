@@ -36699,3 +36699,1261 @@ Processing by UsersController#join as */*
 Completed 200 OK in 17ms (Views: 6.1ms | ActiveRecord: 1.9ms | Allocations: 9220)
 
 
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateOrganisations (20220514134749)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "organisations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "hourly_rate" float, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220514134749"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUsers (20220514135109)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "organisation_id" integer, "name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220514135109"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateShifts (20220514135932)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "shifts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "start" datetime(6), "finish" datetime(6), "break" integer, "employee_name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_b1a30da2b8"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_shifts_on_user_id" ON "shifts" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220514135932"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-17 22:42:58.011105"], ["updated_at", "2022-05-17 22:42:58.011105"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mOrganisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+  [1m[36mShift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOrganisation Create (0.2ms)[0m  [1m[32mINSERT INTO "organisations" ("name", "hourly_rate", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Burger King"], ["hourly_rate", 10.0], ["created_at", "2022-05-17 22:43:02.076520"], ["updated_at", "2022-05-17 22:43:02.076520"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOrganisation Create (0.2ms)[0m  [1m[32mINSERT INTO "organisations" ("name", "hourly_rate", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Foot Locker"], ["hourly_rate", 7.0], ["created_at", "2022-05-17 22:43:02.078057"], ["updated_at", "2022-05-17 22:43:02.078057"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOrganisation Create (0.1ms)[0m  [1m[32mINSERT INTO "organisations" ("name", "hourly_rate", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Toys R' Us"], ["hourly_rate", 30.0], ["created_at", "2022-05-17 22:43:02.079380"], ["updated_at", "2022-05-17 22:43:02.079380"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Jen"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("organisation_id", "name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["organisation_id", 1], ["name", "Jen"], ["email", "jen@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2022-05-17 22:43:02.347569"], ["updated_at", "2022-05-17 22:43:02.347569"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Hain"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "hain@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("organisation_id", "name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["organisation_id", 2], ["name", "Hain"], ["email", "hain@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2022-05-17 22:43:02.612916"], ["updated_at", "2022-05-17 22:43:02.612916"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "gehrig"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "g@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("organisation_id", "name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["organisation_id", 3], ["name", "gehrig"], ["email", "g@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2022-05-17 22:43:02.875903"], ["updated_at", "2022-05-17 22:43:02.875903"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mShift Create (0.2ms)[0m  [1m[32mINSERT INTO "shifts" ("user_id", "start", "finish", "break", "employee_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["start", "2022-05-16 10:00:00"], ["finish", "2022-05-14 15:00:00"], ["break", 30], ["employee_name", "jen"], ["created_at", "2022-05-17 22:43:02.883658"], ["updated_at", "2022-05-17 22:43:02.883658"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mShift Create (0.1ms)[0m  [1m[32mINSERT INTO "shifts" ("user_id", "start", "finish", "break", "employee_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["start", "2022-05-16 10:00:00"], ["finish", "2022-05-15 15:00:00"], ["break", 30], ["employee_name", "jen"], ["created_at", "2022-05-17 22:43:02.885544"], ["updated_at", "2022-05-17 22:43:02.885544"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Started POST "/login" for 127.0.0.1 at 2022-05-17 17:43:26 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login as */*
+  Parameters: {"email"=>"jen@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"jen@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `login'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mShift Load (0.2ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" INNER JOIN "users" ON "shifts"."user_id" = "users"."id" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:9:in `login'
+[active_model_serializers] No serializer found for resource: #<Shift id: 1, user_id: 1, start: "2022-05-16 10:00:00.000000000 +0000", finish: "2022-05-14 15:00:00.000000000 +0000", break: 30, employee_name: "jen", created_at: "2022-05-17 22:43:02.883658000 +0000", updated_at: "2022-05-17 22:43:02.883658000 +0000">
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:9:in `login'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:9:in `login'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (16.43ms)
+Completed 200 OK in 298ms (Views: 23.3ms | ActiveRecord: 1.7ms | Allocations: 50750)
+
+
+Started PATCH "/leave_org/1" for 127.0.0.1 at 2022-05-17 17:43:36 -0500
+Processing by UsersController#leave_org as */*
+  Parameters: {"organisation_id"=>nil, "id"=>"1", "user"=>{"organisation_id"=>nil}}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `leave_org'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: leave_org, request: #<ActionDispatch::Request:0x0000000124d56cc0>, params: {"organisation_id"=>nil, "controller"=>"users", "action"=>"leave_org", "id"=>"1", "user"=>{"organisation_id"=>nil}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", nil], ["updated_at", "2022-05-17 22:43:36.694940"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mShift Destroy (0.2ms)[0m  [1m[31mDELETE FROM "shifts" WHERE "shifts"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mShift Destroy (0.0ms)[0m  [1m[31mDELETE FROM "shifts" WHERE "shifts"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:33:in `leave_org'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (3.66ms)
+Completed 200 OK in 21ms (Views: 4.5ms | ActiveRecord: 3.1ms | Allocations: 9341)
+
+
+Started PATCH "/join/1" for 127.0.0.1 at 2022-05-17 17:43:38 -0500
+Processing by UsersController#join as */*
+  Parameters: {"organisation_id"=>1, "id"=>"1", "user"=>{"organisation_id"=>1}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `join'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: join, request: #<ActionDispatch::Request:0x0000000124cef750>, params: {"organisation_id"=>1, "controller"=>"users", "action"=>"join", "id"=>"1", "user"=>{"organisation_id"=>1}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Update (2.0ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", 1], ["updated_at", "2022-05-17 22:43:38.227453"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" INNER JOIN "users" ON "shifts"."user_id" = "users"."id" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (6.36ms)
+Completed 200 OK in 24ms (Views: 7.4ms | ActiveRecord: 4.3ms | Allocations: 9237)
+
+
+Started PATCH "/leave_org/1" for 127.0.0.1 at 2022-05-17 17:43:39 -0500
+Processing by UsersController#leave_org as */*
+  Parameters: {"organisation_id"=>nil, "id"=>"1", "user"=>{"organisation_id"=>nil}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `leave_org'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: leave_org, request: #<ActionDispatch::Request:0x00000001252b5040>, params: {"organisation_id"=>nil, "controller"=>"users", "action"=>"leave_org", "id"=>"1", "user"=>{"organisation_id"=>nil}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", nil], ["updated_at", "2022-05-17 22:43:39.161135"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:33:in `leave_org'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.41ms)
+Completed 200 OK in 21ms (Views: 2.1ms | ActiveRecord: 3.0ms | Allocations: 6623)
+
+
+Started PATCH "/join/1" for 127.0.0.1 at 2022-05-17 17:43:40 -0500
+Processing by UsersController#join as */*
+  Parameters: {"organisation_id"=>2, "id"=>"1", "user"=>{"organisation_id"=>2}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `join'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: join, request: #<ActionDispatch::Request:0x000000012521cb38>, params: {"organisation_id"=>2, "controller"=>"users", "action"=>"join", "id"=>"1", "user"=>{"organisation_id"=>2}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", 2], ["updated_at", "2022-05-17 22:43:40.189359"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mShift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" INNER JOIN "users" ON "shifts"."user_id" = "users"."id" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 2]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (4.94ms)
+Completed 200 OK in 18ms (Views: 5.8ms | ActiveRecord: 1.9ms | Allocations: 9233)
+
+
+Started PATCH "/leave_org/1" for 127.0.0.1 at 2022-05-17 17:43:42 -0500
+Processing by UsersController#leave_org as */*
+  Parameters: {"organisation_id"=>nil, "id"=>"1", "user"=>{"organisation_id"=>nil}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (11.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `leave_org'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: leave_org, request: #<ActionDispatch::Request:0x00000001250d9730>, params: {"organisation_id"=>nil, "controller"=>"users", "action"=>"leave_org", "id"=>"1", "user"=>{"organisation_id"=>nil}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", nil], ["updated_at", "2022-05-17 22:43:42.952683"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:33:in `leave_org'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (2.68ms)
+Completed 200 OK in 33ms (Views: 3.9ms | ActiveRecord: 15.3ms | Allocations: 6606)
+
+
+Started PATCH "/join/1" for 127.0.0.1 at 2022-05-17 17:43:43 -0500
+Processing by UsersController#join as */*
+  Parameters: {"organisation_id"=>3, "id"=>"1", "user"=>{"organisation_id"=>3}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `join'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: join, request: #<ActionDispatch::Request:0x00000001249bcba0>, params: {"organisation_id"=>3, "controller"=>"users", "action"=>"join", "id"=>"1", "user"=>{"organisation_id"=>3}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", 3], ["updated_at", "2022-05-17 22:43:43.765721"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mShift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" INNER JOIN "users" ON "shifts"."user_id" = "users"."id" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 3]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (5.38ms)
+Completed 200 OK in 16ms (Views: 6.1ms | ActiveRecord: 1.5ms | Allocations: 9212)
+
+
+Started PATCH "/leave_org/1" for 127.0.0.1 at 2022-05-17 17:43:44 -0500
+Processing by UsersController#leave_org as */*
+  Parameters: {"organisation_id"=>nil, "id"=>"1", "user"=>{"organisation_id"=>nil}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `leave_org'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: leave_org, request: #<ActionDispatch::Request:0x0000000124915e18>, params: {"organisation_id"=>nil, "controller"=>"users", "action"=>"leave_org", "id"=>"1", "user"=>{"organisation_id"=>nil}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", nil], ["updated_at", "2022-05-17 22:43:44.963268"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:33:in `leave_org'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.82ms)
+Completed 200 OK in 30ms (Views: 6.6ms | ActiveRecord: 2.6ms | Allocations: 6585)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateOrganisations (20220514134749)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "organisations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "hourly_rate" float, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220514134749"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUsers (20220514135109)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "organisation_id" integer, "name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220514135109"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateShifts (20220514135932)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "shifts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "start" datetime(6), "finish" datetime(6), "break" integer, "employee_name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_b1a30da2b8"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_shifts_on_user_id" ON "shifts" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220514135932"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-17 22:46:59.843176"], ["updated_at", "2022-05-17 22:46:59.843176"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mOrganisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+  [1m[36mShift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOrganisation Create (0.2ms)[0m  [1m[32mINSERT INTO "organisations" ("name", "hourly_rate", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Burger King"], ["hourly_rate", 10.0], ["created_at", "2022-05-17 22:47:03.420926"], ["updated_at", "2022-05-17 22:47:03.420926"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOrganisation Create (1.3ms)[0m  [1m[32mINSERT INTO "organisations" ("name", "hourly_rate", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Foot Locker"], ["hourly_rate", 7.0], ["created_at", "2022-05-17 22:47:03.422546"], ["updated_at", "2022-05-17 22:47:03.422546"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOrganisation Create (0.1ms)[0m  [1m[32mINSERT INTO "organisations" ("name", "hourly_rate", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Toys R' Us"], ["hourly_rate", 30.0], ["created_at", "2022-05-17 22:47:03.424961"], ["updated_at", "2022-05-17 22:47:03.424961"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Jen"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("organisation_id", "name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["organisation_id", 1], ["name", "Jen"], ["email", "jen@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2022-05-17 22:47:03.696239"], ["updated_at", "2022-05-17 22:47:03.696239"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Hain"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "hain@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("organisation_id", "name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["organisation_id", 2], ["name", "Hain"], ["email", "hain@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2022-05-17 22:47:03.959080"], ["updated_at", "2022-05-17 22:47:03.959080"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "gehrig"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "g@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("organisation_id", "name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["organisation_id", 3], ["name", "gehrig"], ["email", "g@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2022-05-17 22:47:04.222504"], ["updated_at", "2022-05-17 22:47:04.222504"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mShift Create (0.2ms)[0m  [1m[32mINSERT INTO "shifts" ("user_id", "start", "finish", "break", "employee_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["start", "2022-05-16 10:00:00"], ["finish", "2022-05-17 15:00:00"], ["break", 30], ["employee_name", "jen"], ["created_at", "2022-05-17 22:47:04.230214"], ["updated_at", "2022-05-17 22:47:04.230214"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mShift Create (0.1ms)[0m  [1m[32mINSERT INTO "shifts" ("user_id", "start", "finish", "break", "employee_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["start", "2022-05-16 10:00:00"], ["finish", "2022-05-17 15:00:00"], ["break", 30], ["employee_name", "jen"], ["created_at", "2022-05-17 22:47:04.232626"], ["updated_at", "2022-05-17 22:47:04.232626"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mShift Create (0.1ms)[0m  [1m[32mINSERT INTO "shifts" ("user_id", "start", "finish", "break", "employee_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["start", "2022-05-16 10:00:00"], ["finish", "2022-05-17 15:00:00"], ["break", 30], ["employee_name", "hain"], ["created_at", "2022-05-17 22:47:04.234286"], ["updated_at", "2022-05-17 22:47:04.234286"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mShift Create (0.1ms)[0m  [1m[32mINSERT INTO "shifts" ("user_id", "start", "finish", "break", "employee_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["start", "2022-05-16 10:00:00"], ["finish", "2022-05-17 15:00:00"], ["break", 30], ["employee_name", "hain"], ["created_at", "2022-05-17 22:47:04.235917"], ["updated_at", "2022-05-17 22:47:04.235917"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Started POST "/login" for 127.0.0.1 at 2022-05-17 17:47:26 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login as */*
+  Parameters: {"email"=>"jen@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"jen@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `login'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mShift Load (0.2ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" INNER JOIN "users" ON "shifts"."user_id" = "users"."id" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:9:in `login'
+[active_model_serializers] No serializer found for resource: #<Shift id: 1, user_id: 1, start: "2022-05-16 10:00:00.000000000 +0000", finish: "2022-05-17 15:00:00.000000000 +0000", break: 30, employee_name: "jen", created_at: "2022-05-17 22:47:04.230214000 +0000", updated_at: "2022-05-17 22:47:04.230214000 +0000">
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:9:in `login'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:9:in `login'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (17.12ms)
+Completed 200 OK in 304ms (Views: 23.9ms | ActiveRecord: 1.6ms | Allocations: 51412)
+
+
+Started PATCH "/leave_org/1" for 127.0.0.1 at 2022-05-17 17:47:33 -0500
+Processing by UsersController#leave_org as */*
+  Parameters: {"organisation_id"=>nil, "id"=>"1", "user"=>{"organisation_id"=>nil}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `leave_org'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: leave_org, request: #<ActionDispatch::Request:0x0000000107d667c8>, params: {"organisation_id"=>nil, "controller"=>"users", "action"=>"leave_org", "id"=>"1", "user"=>{"organisation_id"=>nil}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", nil], ["updated_at", "2022-05-17 22:47:33.021928"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mShift Destroy (0.2ms)[0m  [1m[31mDELETE FROM "shifts" WHERE "shifts"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mShift Destroy (0.0ms)[0m  [1m[31mDELETE FROM "shifts" WHERE "shifts"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mShift Destroy (0.0ms)[0m  [1m[31mDELETE FROM "shifts" WHERE "shifts"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mShift Destroy (0.0ms)[0m  [1m[31mDELETE FROM "shifts" WHERE "shifts"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:33:in `leave_org'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (4.57ms)
+Completed 200 OK in 23ms (Views: 5.3ms | ActiveRecord: 2.7ms | Allocations: 10462)
+
+
+Started PATCH "/join/1" for 127.0.0.1 at 2022-05-17 17:47:34 -0500
+Processing by UsersController#join as */*
+  Parameters: {"organisation_id"=>1, "id"=>"1", "user"=>{"organisation_id"=>1}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `join'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: join, request: #<ActionDispatch::Request:0x000000011fa4c8e0>, params: {"organisation_id"=>1, "controller"=>"users", "action"=>"join", "id"=>"1", "user"=>{"organisation_id"=>1}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", 1], ["updated_at", "2022-05-17 22:47:34.357274"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" INNER JOIN "users" ON "shifts"."user_id" = "users"."id" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (5.6ms)
+Completed 200 OK in 19ms (Views: 6.6ms | ActiveRecord: 2.6ms | Allocations: 9243)
+
+
+Started PATCH "/leave_org/1" for 127.0.0.1 at 2022-05-17 17:47:49 -0500
+Processing by UsersController#leave_org as */*
+  Parameters: {"organisation_id"=>nil, "id"=>"1", "user"=>{"organisation_id"=>nil}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `leave_org'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: leave_org, request: #<ActionDispatch::Request:0x000000011eff1170>, params: {"organisation_id"=>nil, "controller"=>"users", "action"=>"leave_org", "id"=>"1", "user"=>{"organisation_id"=>nil}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", nil], ["updated_at", "2022-05-17 22:47:49.999191"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mShift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:33:in `leave_org'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.27ms)
+Completed 200 OK in 19ms (Views: 2.3ms | ActiveRecord: 1.5ms | Allocations: 6608)
+
+
+Started PATCH "/join/1" for 127.0.0.1 at 2022-05-17 17:47:51 -0500
+Processing by UsersController#join as */*
+  Parameters: {"organisation_id"=>2, "id"=>"1", "user"=>{"organisation_id"=>2}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `join'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: join, request: #<ActionDispatch::Request:0x0000000107adc7c8>, params: {"organisation_id"=>2, "controller"=>"users", "action"=>"join", "id"=>"1", "user"=>{"organisation_id"=>2}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", 2], ["updated_at", "2022-05-17 22:47:51.201434"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mShift Load (0.2ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" INNER JOIN "users" ON "shifts"."user_id" = "users"."id" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 2]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers]   [1m[36mOrganisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (5.55ms)
+Completed 200 OK in 24ms (Views: 6.0ms | ActiveRecord: 2.3ms | Allocations: 9235)
+
+
+Started PATCH "/leave_org/1" for 127.0.0.1 at 2022-05-17 17:47:51 -0500
+Processing by UsersController#leave_org as */*
+  Parameters: {"organisation_id"=>nil, "id"=>"1", "user"=>{"organisation_id"=>nil}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `leave_org'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: leave_org, request: #<ActionDispatch::Request:0x000000010795af80>, params: {"organisation_id"=>nil, "controller"=>"users", "action"=>"leave_org", "id"=>"1", "user"=>{"organisation_id"=>nil}} }[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", nil], ["updated_at", "2022-05-17 22:47:51.984288"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:33:in `leave_org'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.92ms)
+Completed 200 OK in 21ms (Views: 2.6ms | ActiveRecord: 4.4ms | Allocations: 6590)
+
+
+Started PATCH "/join/1" for 127.0.0.1 at 2022-05-17 17:47:52 -0500
+Processing by UsersController#join as */*
+  Parameters: {"organisation_id"=>3, "id"=>"1", "user"=>{"organisation_id"=>3}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `join'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: join, request: #<ActionDispatch::Request:0x000000011ed74898>, params: {"organisation_id"=>3, "controller"=>"users", "action"=>"join", "id"=>"1", "user"=>{"organisation_id"=>3}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", 3], ["updated_at", "2022-05-17 22:47:52.759466"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mShift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" INNER JOIN "users" ON "shifts"."user_id" = "users"."id" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 3]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (3.96ms)
+Completed 200 OK in 26ms (Views: 9.7ms | ActiveRecord: 2.1ms | Allocations: 9209)
+
+
+Started PATCH "/leave_org/1" for 127.0.0.1 at 2022-05-17 17:47:53 -0500
+Processing by UsersController#leave_org as */*
+  Parameters: {"organisation_id"=>nil, "id"=>"1", "user"=>{"organisation_id"=>nil}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `leave_org'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: leave_org, request: #<ActionDispatch::Request:0x000000010b0f5a80>, params: {"organisation_id"=>nil, "controller"=>"users", "action"=>"leave_org", "id"=>"1", "user"=>{"organisation_id"=>nil}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", nil], ["updated_at", "2022-05-17 22:47:53.494067"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mShift Load (0.2ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:33:in `leave_org'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.53ms)
+Completed 200 OK in 16ms (Views: 2.4ms | ActiveRecord: 2.3ms | Allocations: 6600)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-05-17 17:48:01 -0500
+Processing by SessionsController#logout as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+Completed 204 No Content in 11ms (ActiveRecord: 0.4ms | Allocations: 618)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-05-17 17:48:07 -0500
+Processing by SessionsController#login as */*
+  Parameters: {"email"=>"hain@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"hain@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "hain@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `login'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" INNER JOIN "users" ON "shifts"."user_id" = "users"."id" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 2]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:9:in `login'
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:9:in `login'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:9:in `login'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (10.51ms)
+Completed 200 OK in 277ms (Views: 11.5ms | ActiveRecord: 0.7ms | Allocations: 5539)
+
+
+Started PATCH "/leave_org/2" for 127.0.0.1 at 2022-05-17 17:48:08 -0500
+Processing by UsersController#leave_org as */*
+  Parameters: {"organisation_id"=>nil, "id"=>"2", "user"=>{"organisation_id"=>nil}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `leave_org'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: leave_org, request: #<ActionDispatch::Request:0x0000000107fcd390>, params: {"organisation_id"=>nil, "controller"=>"users", "action"=>"leave_org", "id"=>"2", "user"=>{"organisation_id"=>nil}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Hain"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "hain@gmail.com"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", nil], ["updated_at", "2022-05-17 22:48:08.741415"], ["id", 2]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mShift Load (0.5ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:33:in `leave_org'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (2.39ms)
+Completed 200 OK in 30ms (Views: 3.7ms | ActiveRecord: 6.3ms | Allocations: 6597)
+
+
+Started PATCH "/join/2" for 127.0.0.1 at 2022-05-17 17:48:10 -0500
+Processing by UsersController#join as */*
+  Parameters: {"organisation_id"=>2, "id"=>"2", "user"=>{"organisation_id"=>2}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `join'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: join, request: #<ActionDispatch::Request:0x0000000107f6ffb0>, params: {"organisation_id"=>2, "controller"=>"users", "action"=>"join", "id"=>"2", "user"=>{"organisation_id"=>2}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Hain"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "hain@gmail.com"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", 2], ["updated_at", "2022-05-17 22:48:10.694851"], ["id", 2]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" INNER JOIN "users" ON "shifts"."user_id" = "users"."id" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 2]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers]   [1m[36mOrganisation Load (0.4ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (6.08ms)
+Completed 200 OK in 25ms (Views: 6.8ms | ActiveRecord: 5.3ms | Allocations: 9216)
+
+
+Started PATCH "/leave_org/2" for 127.0.0.1 at 2022-05-17 17:48:11 -0500
+Processing by UsersController#leave_org as */*
+  Parameters: {"organisation_id"=>nil, "id"=>"2", "user"=>{"organisation_id"=>nil}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `leave_org'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: leave_org, request: #<ActionDispatch::Request:0x00000001089c3250>, params: {"organisation_id"=>nil, "controller"=>"users", "action"=>"leave_org", "id"=>"2", "user"=>{"organisation_id"=>nil}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Hain"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "hain@gmail.com"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", nil], ["updated_at", "2022-05-17 22:48:11.819089"], ["id", 2]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:33:in `leave_org'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.43ms)
+Completed 200 OK in 20ms (Views: 2.1ms | ActiveRecord: 2.4ms | Allocations: 6593)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateOrganisations (20220514134749)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "organisations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "hourly_rate" float, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220514134749"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUsers (20220514135109)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "organisation_id" integer, "name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220514135109"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateShifts (20220514135932)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "shifts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "start" datetime(6), "finish" datetime(6), "break" integer, "employee_name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_b1a30da2b8"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_shifts_on_user_id" ON "shifts" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220514135932"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-17 22:48:54.548186"], ["updated_at", "2022-05-17 22:48:54.548186"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mOrganisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+  [1m[36mShift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOrganisation Create (0.2ms)[0m  [1m[32mINSERT INTO "organisations" ("name", "hourly_rate", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Burger King"], ["hourly_rate", 10.0], ["created_at", "2022-05-17 22:48:57.961507"], ["updated_at", "2022-05-17 22:48:57.961507"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOrganisation Create (0.1ms)[0m  [1m[32mINSERT INTO "organisations" ("name", "hourly_rate", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Foot Locker"], ["hourly_rate", 7.0], ["created_at", "2022-05-17 22:48:57.963027"], ["updated_at", "2022-05-17 22:48:57.963027"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOrganisation Create (0.2ms)[0m  [1m[32mINSERT INTO "organisations" ("name", "hourly_rate", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Toys R' Us"], ["hourly_rate", 30.0], ["created_at", "2022-05-17 22:48:57.964254"], ["updated_at", "2022-05-17 22:48:57.964254"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Jen"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("organisation_id", "name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["organisation_id", 1], ["name", "Jen"], ["email", "jen@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2022-05-17 22:48:58.239454"], ["updated_at", "2022-05-17 22:48:58.239454"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Hain"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "hain@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("organisation_id", "name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["organisation_id", 2], ["name", "Hain"], ["email", "hain@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2022-05-17 22:48:58.502198"], ["updated_at", "2022-05-17 22:48:58.502198"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "gehrig"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "g@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("organisation_id", "name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["organisation_id", 3], ["name", "gehrig"], ["email", "g@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2022-05-17 22:48:58.765425"], ["updated_at", "2022-05-17 22:48:58.765425"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mShift Create (0.2ms)[0m  [1m[32mINSERT INTO "shifts" ("user_id", "start", "finish", "break", "employee_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["start", "2022-05-16 10:00:00"], ["finish", "2022-05-17 15:00:00"], ["break", 30], ["employee_name", "jen"], ["created_at", "2022-05-17 22:48:58.772701"], ["updated_at", "2022-05-17 22:48:58.772701"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mShift Create (0.1ms)[0m  [1m[32mINSERT INTO "shifts" ("user_id", "start", "finish", "break", "employee_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["start", "2022-05-16 10:00:00"], ["finish", "2022-05-17 15:00:00"], ["break", 30], ["employee_name", "jen"], ["created_at", "2022-05-17 22:48:58.774559"], ["updated_at", "2022-05-17 22:48:58.774559"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShift Create (0.1ms)[0m  [1m[32mINSERT INTO "shifts" ("user_id", "start", "finish", "break", "employee_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["start", "2022-05-16 10:00:00"], ["finish", "2022-05-17 15:00:00"], ["break", 30], ["employee_name", "hain"], ["created_at", "2022-05-17 22:48:58.776256"], ["updated_at", "2022-05-17 22:48:58.776256"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mShift Create (0.1ms)[0m  [1m[32mINSERT INTO "shifts" ("user_id", "start", "finish", "break", "employee_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["start", "2022-05-16 10:00:00"], ["finish", "2022-05-17 15:00:00"], ["break", 30], ["employee_name", "hain"], ["created_at", "2022-05-17 22:48:58.777924"], ["updated_at", "2022-05-17 22:48:58.777924"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+Started POST "/login" for 127.0.0.1 at 2022-05-17 17:49:12 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login as */*
+  Parameters: {"email"=>"jen@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"jen@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `login'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mShift Load (0.2ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" INNER JOIN "users" ON "shifts"."user_id" = "users"."id" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:9:in `login'
+[active_model_serializers] No serializer found for resource: #<Shift id: 1, user_id: 1, start: "2022-05-16 10:00:00.000000000 +0000", finish: "2022-05-17 15:00:00.000000000 +0000", break: 30, employee_name: "jen", created_at: "2022-05-17 22:48:58.772701000 +0000", updated_at: "2022-05-17 22:48:58.772701000 +0000">
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:9:in `login'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:9:in `login'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (16.8ms)
+Completed 200 OK in 299ms (Views: 24.3ms | ActiveRecord: 1.5ms | Allocations: 50738)
+
+
+Started PATCH "/leave_org/1" for 127.0.0.1 at 2022-05-17 17:49:15 -0500
+Processing by UsersController#leave_org as */*
+  Parameters: {"organisation_id"=>nil, "id"=>"1", "user"=>{"organisation_id"=>nil}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `leave_org'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: leave_org, request: #<ActionDispatch::Request:0x0000000107967708>, params: {"organisation_id"=>nil, "controller"=>"users", "action"=>"leave_org", "id"=>"1", "user"=>{"organisation_id"=>nil}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", nil], ["updated_at", "2022-05-17 22:49:15.849818"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mShift Destroy (0.2ms)[0m  [1m[31mDELETE FROM "shifts" WHERE "shifts"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mShift Destroy (0.1ms)[0m  [1m[31mDELETE FROM "shifts" WHERE "shifts"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:33:in `leave_org'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.61ms)
+Completed 200 OK in 17ms (Views: 2.2ms | ActiveRecord: 2.2ms | Allocations: 9333)
+
+
+Started PATCH "/join/1" for 127.0.0.1 at 2022-05-17 17:49:16 -0500
+Processing by UsersController#join as */*
+  Parameters: {"organisation_id"=>2, "id"=>"1", "user"=>{"organisation_id"=>2}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `join'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: join, request: #<ActionDispatch::Request:0x00000001078cead0>, params: {"organisation_id"=>2, "controller"=>"users", "action"=>"join", "id"=>"1", "user"=>{"organisation_id"=>2}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", 2], ["updated_at", "2022-05-17 22:49:16.539173"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (2.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mShift Load (0.2ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" INNER JOIN "users" ON "shifts"."user_id" = "users"."id" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 2]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers]   [1m[36mOrganisation Load (0.7ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (7.48ms)
+Completed 200 OK in 23ms (Views: 5.6ms | ActiveRecord: 5.5ms | Allocations: 9577)
+
+
+Started PATCH "/leave_org/1" for 127.0.0.1 at 2022-05-17 17:49:17 -0500
+Processing by UsersController#leave_org as */*
+  Parameters: {"organisation_id"=>nil, "id"=>"1", "user"=>{"organisation_id"=>nil}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `leave_org'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: leave_org, request: #<ActionDispatch::Request:0x0000000123cc1770>, params: {"organisation_id"=>nil, "controller"=>"users", "action"=>"leave_org", "id"=>"1", "user"=>{"organisation_id"=>nil}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", nil], ["updated_at", "2022-05-17 22:49:17.918386"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:33:in `leave_org'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.63ms)
+Completed 200 OK in 20ms (Views: 2.4ms | ActiveRecord: 5.9ms | Allocations: 6616)
+
+
+Started PATCH "/join/1" for 127.0.0.1 at 2022-05-17 17:49:18 -0500
+Processing by UsersController#join as */*
+  Parameters: {"organisation_id"=>2, "id"=>"1", "user"=>{"organisation_id"=>2}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `join'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: join, request: #<ActionDispatch::Request:0x0000000123c6ae98>, params: {"organisation_id"=>2, "controller"=>"users", "action"=>"join", "id"=>"1", "user"=>{"organisation_id"=>2}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", 2], ["updated_at", "2022-05-17 22:49:18.618814"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mShift Load (0.4ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" INNER JOIN "users" ON "shifts"."user_id" = "users"."id" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 2]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers]   [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (4.14ms)
+Completed 200 OK in 13ms (Views: 4.3ms | ActiveRecord: 2.1ms | Allocations: 9579)
+
+
+Started PATCH "/leave_org/1" for 127.0.0.1 at 2022-05-17 17:49:19 -0500
+Processing by UsersController#leave_org as */*
+  Parameters: {"organisation_id"=>nil, "id"=>"1", "user"=>{"organisation_id"=>nil}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `leave_org'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: leave_org, request: #<ActionDispatch::Request:0x0000000113ebe588>, params: {"organisation_id"=>nil, "controller"=>"users", "action"=>"leave_org", "id"=>"1", "user"=>{"organisation_id"=>nil}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", nil], ["updated_at", "2022-05-17 22:49:19.319957"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mShift Load (0.2ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:33:in `leave_org'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.26ms)
+Completed 200 OK in 20ms (Views: 2.0ms | ActiveRecord: 3.1ms | Allocations: 6598)
+
+
+Started PATCH "/join/1" for 127.0.0.1 at 2022-05-17 17:49:19 -0500
+Processing by UsersController#join as */*
+  Parameters: {"organisation_id"=>2, "id"=>"1", "user"=>{"organisation_id"=>2}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `join'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: join, request: #<ActionDispatch::Request:0x0000000114260448>, params: {"organisation_id"=>2, "controller"=>"users", "action"=>"join", "id"=>"1", "user"=>{"organisation_id"=>2}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", 2], ["updated_at", "2022-05-17 22:49:20.017541"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" INNER JOIN "users" ON "shifts"."user_id" = "users"."id" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 2]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (8.93ms)
+Completed 200 OK in 25ms (Views: 10.2ms | ActiveRecord: 3.1ms | Allocations: 9555)
+
+
+Started PATCH "/leave_org/1" for 127.0.0.1 at 2022-05-17 17:49:20 -0500
+Processing by UsersController#leave_org as */*
+  Parameters: {"organisation_id"=>nil, "id"=>"1", "user"=>{"organisation_id"=>nil}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `leave_org'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: leave_org, request: #<ActionDispatch::Request:0x0000000123de7280>, params: {"organisation_id"=>nil, "controller"=>"users", "action"=>"leave_org", "id"=>"1", "user"=>{"organisation_id"=>nil}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", nil], ["updated_at", "2022-05-17 22:49:20.834633"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:33:in `leave_org'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.41ms)
+Completed 200 OK in 15ms (Views: 2.2ms | ActiveRecord: 1.9ms | Allocations: 6587)
+
+
+Started PATCH "/join/1" for 127.0.0.1 at 2022-05-17 17:49:21 -0500
+Processing by UsersController#join as */*
+  Parameters: {"organisation_id"=>1, "id"=>"1", "user"=>{"organisation_id"=>1}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `join'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: join, request: #<ActionDispatch::Request:0x0000000114377390>, params: {"organisation_id"=>1, "controller"=>"users", "action"=>"join", "id"=>"1", "user"=>{"organisation_id"=>1}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", 1], ["updated_at", "2022-05-17 22:49:21.665172"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" INNER JOIN "users" ON "shifts"."user_id" = "users"."id" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers]   [1m[36mOrganisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (4.28ms)
+Completed 200 OK in 18ms (Views: 4.9ms | ActiveRecord: 2.3ms | Allocations: 9218)
+
+
+Started PATCH "/leave_org/1" for 127.0.0.1 at 2022-05-17 17:49:22 -0500
+Processing by UsersController#leave_org as */*
+  Parameters: {"organisation_id"=>nil, "id"=>"1", "user"=>{"organisation_id"=>nil}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `leave_org'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: leave_org, request: #<ActionDispatch::Request:0x0000000107b02f90>, params: {"organisation_id"=>nil, "controller"=>"users", "action"=>"leave_org", "id"=>"1", "user"=>{"organisation_id"=>nil}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", nil], ["updated_at", "2022-05-17 22:49:22.292969"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mShift Load (2.4ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:33:in `leave_org'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.03ms)
+Completed 200 OK in 20ms (Views: 1.6ms | ActiveRecord: 6.7ms | Allocations: 6591)
+
+
+Started PATCH "/join/1" for 127.0.0.1 at 2022-05-17 17:49:23 -0500
+Processing by UsersController#join as */*
+  Parameters: {"organisation_id"=>3, "id"=>"1", "user"=>{"organisation_id"=>3}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `join'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: join, request: #<ActionDispatch::Request:0x00000001074b2398>, params: {"organisation_id"=>3, "controller"=>"users", "action"=>"join", "id"=>"1", "user"=>{"organisation_id"=>3}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", 3], ["updated_at", "2022-05-17 22:49:23.111144"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mShift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" INNER JOIN "users" ON "shifts"."user_id" = "users"."id" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 3]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (4.07ms)
+Completed 200 OK in 18ms (Views: 4.8ms | ActiveRecord: 2.1ms | Allocations: 9212)
+
+
+Started PATCH "/leave_org/1" for 127.0.0.1 at 2022-05-17 17:49:23 -0500
+Processing by UsersController#leave_org as */*
+  Parameters: {"organisation_id"=>nil, "id"=>"1", "user"=>{"organisation_id"=>nil}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `leave_org'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: leave_org, request: #<ActionDispatch::Request:0x0000000107a0c668>, params: {"organisation_id"=>nil, "controller"=>"users", "action"=>"leave_org", "id"=>"1", "user"=>{"organisation_id"=>nil}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", nil], ["updated_at", "2022-05-17 22:49:23.815918"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mShift Load (0.2ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:33:in `leave_org'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.36ms)
+Completed 200 OK in 16ms (Views: 2.3ms | ActiveRecord: 2.5ms | Allocations: 6593)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-05-17 17:49:25 -0500
+Processing by SessionsController#logout as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+Completed 204 No Content in 2ms (ActiveRecord: 0.2ms | Allocations: 616)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-05-17 17:49:36 -0500
+Processing by SessionsController#login as */*
+  Parameters: {"email"=>"hain@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"hain@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "hain@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `login'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mShift Load (0.7ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" INNER JOIN "users" ON "shifts"."user_id" = "users"."id" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 2]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:9:in `login'
+[active_model_serializers] No serializer found for resource: #<Shift id: 3, user_id: 2, start: "2022-05-16 10:00:00.000000000 +0000", finish: "2022-05-17 15:00:00.000000000 +0000", break: 30, employee_name: "hain", created_at: "2022-05-17 22:48:58.776256000 +0000", updated_at: "2022-05-17 22:48:58.776256000 +0000">
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:9:in `login'
+[active_model_serializers]   [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:9:in `login'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (15.74ms)
+Completed 200 OK in 355ms (Views: 17.2ms | ActiveRecord: 1.8ms | Allocations: 6288)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-05-17 17:49:39 -0500
+Processing by SessionsController#logout as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+Completed 204 No Content in 9ms (ActiveRecord: 0.3ms | Allocations: 613)
+
+
