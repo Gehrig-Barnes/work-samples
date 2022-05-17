@@ -11,5 +11,4 @@ class User < ApplicationRecord
         self.password = password
         save!
     end
-    
 end
