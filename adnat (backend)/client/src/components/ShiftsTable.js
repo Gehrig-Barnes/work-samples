@@ -34,8 +34,8 @@ function ShiftsTable ({shifts}){
                             <td>{`${new Date(Date.parse(shift.start)).toLocaleTimeString()}`}</td>
                             <td>{`${new Date(Date.parse(shift.finish)).toLocaleTimeString()}`}</td>
                             <td>{shift.break}</td>
-                            <td></td>
-                            <td></td>
+                            <td>{shift.hours_worked}</td>
+                            <td>${shift.shift_cost}</td>
                         </tr>
                     ))}
                 </tbody>

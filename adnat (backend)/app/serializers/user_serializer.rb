@@ -12,7 +12,7 @@ class UserSerializer < ActiveModel::Serializer
       puts "no shifts"
     else
       current_user.organisation.shifts.map do|shift|
-        shift.attributes.merge(hours_worked: shift.hours_worked)
+        shift.attributes.merge(hours_worked: shift.hours_worked, shift_cost: shift.hours_worked * Organisation.find_by_id(current_user.organisation_id).hourly_rate)
       end 
     end
   end
