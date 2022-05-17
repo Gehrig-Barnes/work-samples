@@ -6,4 +6,5 @@ class UserSerializer < ActiveModel::Serializer
   def orgs
     Organisation.all
   end
+
 end

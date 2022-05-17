@@ -1,19 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, NavLink } from "react-router-dom";
 import Login from './components/Login'
 import Organizations from "./components/Organizations";
 import EditOrg from "./components/EditOrg";
 import CreateOrg from "./components/CreateOrg";
 
+//EVENTUAL TO_DOS
+//create validations
 
+
+//TO_DO
+//When a user has an Org, we need to Render the page with the Org name.
+//underneath will have three different buttons. 1) View Shift 2) Edit 3)Leave
+//for view shift, we have to create a component called shift
+//leave, we just have to create a button that allows us to patch organization_id
 function App() {
   const [user, setUser] = useState(null)
   const [showEditForm, setShowEditForm] = useState({
     show: false,
     org: null
   })
-
-  
 
   useEffect(() => {
     // auto-login
@@ -32,12 +38,36 @@ function App() {
             setUser(null);
         }
     });
-}
+  }
+  console.log(user)
+  // console.log(user.id)
+  function leaveOrg(){
+    fetch(`/leave_org/${user.id}`, {
+      method: 'PATCH',
+      body: JSON.stringify({
+        organisation_id: null
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    .then((r) => r.json())
+    .then((data) => setUser(data))
+  }
 
+ 
   function renderSelectOrg () {
     const  {organisation_id } = user
     if(organisation_id){
-      return <h1>Your org here</h1>
+      return (
+      <div>
+        <h2>Logged in as, {user.name}</h2>
+        <h1>{user.organisation.name}</h1>
+        <button>View Shift</button>
+        <button>Edit</button>
+        <button onClick={() => leaveOrg()}>Leave</button>
+      </div>
+      )
     }
 
     return (!showEditForm.show ? 

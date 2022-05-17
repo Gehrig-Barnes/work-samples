@@ -22,7 +22,13 @@ class UsersController < ApplicationController
 
     def join
         user = User.find(params[:id])
-         user.update!(join_param)
+        user.update!(org_id_param)
+        render json: user, status: :ok
+    end
+
+    def leave_org
+        user = User.find(params[:id])
+        user.update!(org_id_param)
         render json: user, status: :ok
     end
 
@@ -32,8 +38,10 @@ class UsersController < ApplicationController
         params.permit(:name, :password, :password_confirmation, :email)
     end
 
-    def join_param
+    def org_id_param
         params.permit(:organisation_id)
     end
+
+    
 
 end

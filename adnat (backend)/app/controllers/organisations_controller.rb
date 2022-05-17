@@ -16,8 +16,11 @@ class OrganisationsController < ApplicationController
 
     def destroy
         old_org = Organisation.find(params[:id])
-        old_org.destroy
-        head :no_content 
+        if User.all.pluck(:organisation_id).include?(old_org.id)
+            puts "Other Users are associated with this organization", status: :ok
+        else
+            old_org.destroy
+        end
     end
 
     private

@@ -27,7 +27,7 @@ function EditOrg({setShowEditForm, org}){
                 'Content-Type': 'application/json',
             },
         })
-        .then((r) => console.log(r.json()))
+        .then((r) => r.json())
         .then((data) => console.log(data))
         .then(window.location.reload())
     }
@@ -39,6 +39,7 @@ function EditOrg({setShowEditForm, org}){
                 'Content-Type': 'application/json',
             },
         })
+        .then(window.location.reload())
     }
 
     
