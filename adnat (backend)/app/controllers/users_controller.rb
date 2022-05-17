@@ -29,6 +29,7 @@ class UsersController < ApplicationController
     def leave_org
         user = User.find(params[:id])
         user.update!(org_id_param)
+        user.shifts.destroy_all
         render json: user, status: :ok
     end
 
