@@ -4,6 +4,7 @@ import Login from './components/Login'
 import Organizations from "./components/Organizations";
 import EditOrg from "./components/EditOrg";
 import CreateOrg from "./components/CreateOrg";
+import ShiftsTable from "./components/ShiftsTable"
 
 //EVENTUAL TO_DOS
 //create validations
@@ -66,6 +67,9 @@ function App() {
         <button>View Shift</button>
         <button>Edit</button>
         <button onClick={() => leaveOrg()}>Leave</button>
+        <div>
+          <ShiftsTable shifts={user.all_shifts}/>
+        </div>
       </div>
       )
     }

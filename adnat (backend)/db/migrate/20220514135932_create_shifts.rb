@@ -5,6 +5,7 @@ class CreateShifts < ActiveRecord::Migration[7.0]
       t.datetime :start
       t.datetime :finish
       t.integer :break
+      t.string :employee_name
       t.timestamps
     end
   end

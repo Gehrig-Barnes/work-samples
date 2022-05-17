@@ -24,7 +24,8 @@ user_two = User.create(organisation_id: org_two.id, name: "Hain", email: "hain@g
 
 user_three = User.create(organisation_id: org_three.id, name: "gehrig", email: "g@gmail.com", password: "789")
 
-shift_one = Shift.create(user_id: user_one.id, start: DateTime.parse("14/05/2022 10:00"), finish: DateTime.parse("14/05/2022 15:00"), break: 30)
+shift_one = Shift.create(user_id: user_one.id, start: DateTime.parse("16/05/2022 10:00"), finish: DateTime.parse("14/05/2022 15:00"), break: 30, employee_name: "jen")
+shift_one = Shift.create(user_id: user_one.id, start: DateTime.parse("16/05/2022 10:00"), finish: DateTime.parse("15/05/2022 15:00"), break: 30, employee_name: "jen")
 
 
 

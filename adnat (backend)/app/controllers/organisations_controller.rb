@@ -11,6 +11,7 @@ class OrganisationsController < ApplicationController
         new_org = Organisation.create!(org_params)
         current_user = User.find(session[:user_id])
         current_user.update!(organisation_id: new_org.id)
+        current_user.shifts.delete_all
         render json: current_user, status: :ok
     end
 

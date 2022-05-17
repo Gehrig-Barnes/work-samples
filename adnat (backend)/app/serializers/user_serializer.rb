@@ -13,7 +13,6 @@ class UserSerializer < ActiveModel::Serializer
     else
       Organisation.find_by_id(current_user.organisation_id).users.map{|user| user.shifts}.flatten!
     end
-    
   end
 
 end
