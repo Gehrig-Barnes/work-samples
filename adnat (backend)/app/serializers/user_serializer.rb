@@ -11,8 +11,11 @@ class UserSerializer < ActiveModel::Serializer
     if current_user.organisation_id == nil
       puts "no shifts"
     else
-      Organisation.find_by_id(current_user.organisation_id).users.map{|user| user.shifts}.flatten!
+      current_user.organisation.shifts.map do|shift|
+        shift.attributes.merge(hours_worked: shift.hours_worked)
+      end 
     end
   end
 
+  ##create a shift serializer and use it above
 end

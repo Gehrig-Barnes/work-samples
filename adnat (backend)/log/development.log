@@ -35191,3 +35191,590 @@ Processing by UsersController#show as */*
 Completed 200 OK in 45ms (Views: 33.8ms | ActiveRecord: 3.6ms | Allocations: 6838)
 
 
+Started GET "/me" for 127.0.0.1 at 2022-05-17 15:37:53 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 7]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `flatten!'
+[active_model_serializers]   [1m[36mCACHE Shift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] No serializer found for resource: #<Shift id: 1, user_id: 7, start: "2022-05-16 10:00:00.000000000 +0000", finish: "2022-05-14 15:00:00.000000000 +0000", break: 30, employee_name: "jen", created_at: "2022-05-17 19:16:18.158917000 +0000", updated_at: "2022-05-17 19:16:18.158917000 +0000">
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (0.4ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (27.53ms)
+Completed 200 OK in 58ms (Views: 35.5ms | ActiveRecord: 2.1ms | Allocations: 46474)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-17 15:38:51 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 7]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.4ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `flatten!'
+[active_model_serializers]   [1m[36mCACHE Shift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] No serializer found for resource: #<Shift id: 1, user_id: 7, start: "2022-05-16 10:00:00.000000000 +0000", finish: "2022-05-14 15:00:00.000000000 +0000", break: 30, employee_name: "jen", created_at: "2022-05-17 19:16:18.158917000 +0000", updated_at: "2022-05-17 19:16:18.158917000 +0000">
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (17.99ms)
+Completed 200 OK in 29ms (Views: 21.0ms | ActiveRecord: 1.6ms | Allocations: 6860)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-17 15:39:13 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 7]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.2ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `flatten!'
+[active_model_serializers]   [1m[36mCACHE Shift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] No serializer found for resource: #<Shift id: 1, user_id: 7, start: "2022-05-16 10:00:00.000000000 +0000", finish: "2022-05-14 15:00:00.000000000 +0000", break: 30, employee_name: "jen", created_at: "2022-05-17 19:16:18.158917000 +0000", updated_at: "2022-05-17 19:16:18.158917000 +0000">
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (14.54ms)
+Completed 200 OK in 23ms (Views: 16.5ms | ActiveRecord: 1.0ms | Allocations: 6864)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-17 15:39:49 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 7]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `flatten!'
+[active_model_serializers]   [1m[36mCACHE Shift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] No serializer found for resource: #<Shift id: 1, user_id: 7, start: "2022-05-16 10:00:00.000000000 +0000", finish: "2022-05-14 15:00:00.000000000 +0000", break: 30, employee_name: "jen", created_at: "2022-05-17 19:16:18.158917000 +0000", updated_at: "2022-05-17 19:16:18.158917000 +0000">
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (20.58ms)
+Completed 200 OK in 35ms (Views: 28.0ms | ActiveRecord: 0.8ms | Allocations: 6870)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-17 15:42:27 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 7]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.7ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `flatten!'
+[active_model_serializers]   [1m[36mCACHE Shift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] No serializer found for resource: #<Shift id: 1, user_id: 7, start: "2022-05-16 10:00:00.000000000 +0000", finish: "2022-05-14 15:00:00.000000000 +0000", break: 30, employee_name: "jen", created_at: "2022-05-17 19:16:18.158917000 +0000", updated_at: "2022-05-17 19:16:18.158917000 +0000">
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (0.6ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (20.68ms)
+Completed 200 OK in 50ms (Views: 23.1ms | ActiveRecord: 2.1ms | Allocations: 6858)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-17 15:42:59 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 7]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.2ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `flatten!'
+[active_model_serializers]   [1m[36mCACHE Shift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] No serializer found for resource: #<Shift id: 1, user_id: 7, start: "2022-05-16 10:00:00.000000000 +0000", finish: "2022-05-14 15:00:00.000000000 +0000", break: 30, employee_name: "jen", created_at: "2022-05-17 19:16:18.158917000 +0000", updated_at: "2022-05-17 19:16:18.158917000 +0000">
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (83.48ms)
+Completed 200 OK in 95ms (Views: 84.2ms | ActiveRecord: 1.3ms | Allocations: 6841)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-17 15:43:57 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 7]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `flatten!'
+[active_model_serializers]   [1m[36mCACHE Shift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] No serializer found for resource: #<Shift id: 1, user_id: 7, start: "2022-05-16 10:00:00.000000000 +0000", finish: "2022-05-14 15:00:00.000000000 +0000", break: 30, employee_name: "jen", created_at: "2022-05-17 19:16:18.158917000 +0000", updated_at: "2022-05-17 19:16:18.158917000 +0000">
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (21.26ms)
+Completed 200 OK in 37ms (Views: 24.9ms | ActiveRecord: 0.8ms | Allocations: 6842)
+
+
+Started PATCH "/leave_org/7" for 127.0.0.1 at 2022-05-17 16:31:27 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#leave_org as */*
+  Parameters: {"organisation_id"=>nil, "id"=>"7", "user"=>{"organisation_id"=>nil}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `leave_org'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: leave_org, request: #<ActionDispatch::Request:0x000000012a6e63f8>, params: {"organisation_id"=>nil, "controller"=>"users", "action"=>"leave_org", "id"=>"7", "user"=>{"organisation_id"=>nil}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", nil], ["updated_at", "2022-05-17 21:31:28.277887"], ["id", 7]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mShift Load (0.3ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:32:in `leave_org'
+[active_model_serializers] No serializer found for resource: #<Shift id: 1, user_id: 7, start: "2022-05-16 10:00:00.000000000 +0000", finish: "2022-05-14 15:00:00.000000000 +0000", break: 30, employee_name: "jen", created_at: "2022-05-17 19:16:18.158917000 +0000", updated_at: "2022-05-17 19:16:18.158917000 +0000">
+[active_model_serializers]   [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:32:in `leave_org'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (12.93ms)
+Completed 200 OK in 41ms (Views: 17.2ms | ActiveRecord: 3.0ms | Allocations: 14426)
+
+
+Started PATCH "/join/7" for 127.0.0.1 at 2022-05-17 16:32:27 -0500
+Processing by UsersController#join as */*
+  Parameters: {"organisation_id"=>7, "id"=>"7", "user"=>{"organisation_id"=>7}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `join'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: join, request: #<ActionDispatch::Request:0x00000001079c4ed0>, params: {"organisation_id"=>7, "controller"=>"users", "action"=>"join", "id"=>"7", "user"=>{"organisation_id"=>7}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Update (5.2ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", 7], ["updated_at", "2022-05-17 21:32:27.655507"], ["id", 7]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 7]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `flatten!'
+[active_model_serializers]   [1m[36mCACHE Shift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers] No serializer found for resource: #<Shift id: 1, user_id: 7, start: "2022-05-16 10:00:00.000000000 +0000", finish: "2022-05-14 15:00:00.000000000 +0000", break: 30, employee_name: "jen", created_at: "2022-05-17 19:16:18.158917000 +0000", updated_at: "2022-05-17 19:16:18.158917000 +0000">
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (12.17ms)
+Completed 200 OK in 41ms (Views: 12.8ms | ActiveRecord: 7.2ms | Allocations: 10955)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-17 16:32:57 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.3ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 7]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `flatten!'
+[active_model_serializers]   [1m[36mCACHE Shift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] No serializer found for resource: #<Shift id: 1, user_id: 7, start: "2022-05-16 10:00:00.000000000 +0000", finish: "2022-05-14 15:00:00.000000000 +0000", break: 30, employee_name: "jen", created_at: "2022-05-17 19:16:18.158917000 +0000", updated_at: "2022-05-17 19:16:18.158917000 +0000">
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (2.7ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (38.44ms)
+Completed 200 OK in 55ms (Views: 37.8ms | ActiveRecord: 3.6ms | Allocations: 6854)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-17 16:34:02 -0500
+Processing by UsersController#show as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.3ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 7]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (1.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `flatten!'
+[active_model_serializers]   [1m[36mCACHE Shift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] No serializer found for resource: #<Shift id: 1, user_id: 7, start: "2022-05-16 10:00:00.000000000 +0000", finish: "2022-05-14 15:00:00.000000000 +0000", break: 30, employee_name: "jen", created_at: "2022-05-17 19:16:18.158917000 +0000", updated_at: "2022-05-17 19:16:18.158917000 +0000">
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (32.15ms)
+Completed 200 OK in 70ms (Views: 35.0ms | ActiveRecord: 5.1ms | Allocations: 17958)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-17 16:35:38 -0500
+Processing by UsersController#show as */*
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (53.43ms)
+Completed 500 Internal Server Error in 86ms (ActiveRecord: 5.2ms | Allocations: 12647)
+
+
+  
+NoMethodError (undefined method `shifs' for #<Organisation:0x0000000107b701d0>
+Did you mean?  shifts
+               shifts=):
+  
+app/serializers/user_serializer.rb:14:in `all_shifts'
+app/controllers/users_controller.rb:15:in `show'
+Started GET "/me" for 127.0.0.1 at 2022-05-17 16:35:44 -0500
+Processing by UsersController#show as */*
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mShift Load (0.3ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] No serializer found for resource: #<Shift id: 1, user_id: 7, start: "2022-05-16 10:00:00.000000000 +0000", finish: "2022-05-14 15:00:00.000000000 +0000", break: 30, employee_name: "jen", created_at: "2022-05-17 19:16:18.158917000 +0000", updated_at: "2022-05-17 19:16:18.158917000 +0000">
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (0.9ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mShift Load (0.4ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" INNER JOIN "users" ON "shifts"."user_id" = "users"."id" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 7]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (35.96ms)
+Completed 200 OK in 54ms (Views: 36.1ms | ActiveRecord: 3.8ms | Allocations: 21826)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-17 16:39:02 -0500
+Processing by UsersController#show as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.4ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mShift Load (0.3ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" INNER JOIN "users" ON "shifts"."user_id" = "users"."id" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 7]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.2ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] No serializer found for resource: #<Shift id: 1, user_id: 7, start: "2022-05-16 10:00:00.000000000 +0000", finish: "2022-05-14 15:00:00.000000000 +0000", break: 30, employee_name: "jen", created_at: "2022-05-17 19:16:18.158917000 +0000", updated_at: "2022-05-17 19:16:18.158917000 +0000">
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (32.99ms)
+Completed 200 OK in 66ms (Views: 37.0ms | ActiveRecord: 6.9ms | Allocations: 18644)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-17 16:39:30 -0500
+Processing by UsersController#show as */*
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mShift Load (1.2ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" INNER JOIN "users" ON "shifts"."user_id" = "users"."id" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 7]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.3ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] No serializer found for resource: #<Shift id: 1, user_id: 7, start: "2022-05-16 10:00:00.000000000 +0000", finish: "2022-05-14 15:00:00.000000000 +0000", break: 30, employee_name: "jen", created_at: "2022-05-17 19:16:18.158917000 +0000", updated_at: "2022-05-17 19:16:18.158917000 +0000">
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (0.3ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (31.67ms)
+Completed 200 OK in 48ms (Views: 30.2ms | ActiveRecord: 4.5ms | Allocations: 18672)
+
+
+Started PATCH "/leave_org/7" for 127.0.0.1 at 2022-05-17 16:43:35 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#leave_org as */*
+  Parameters: {"organisation_id"=>nil, "id"=>"7", "user"=>{"organisation_id"=>nil}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `leave_org'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: leave_org, request: #<ActionDispatch::Request:0x0000000107a7cf80>, params: {"organisation_id"=>nil, "controller"=>"users", "action"=>"leave_org", "id"=>"7", "user"=>{"organisation_id"=>nil}} }[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", nil], ["updated_at", "2022-05-17 21:43:35.448623"], ["id", 7]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:32:in `leave_org'
+[active_model_serializers] No serializer found for resource: #<Shift id: 1, user_id: 7, start: "2022-05-16 10:00:00.000000000 +0000", finish: "2022-05-14 15:00:00.000000000 +0000", break: 30, employee_name: "jen", created_at: "2022-05-17 19:16:18.158917000 +0000", updated_at: "2022-05-17 19:16:18.158917000 +0000">
+[active_model_serializers]   [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:32:in `leave_org'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (21.77ms)
+Completed 200 OK in 54ms (Views: 24.0ms | ActiveRecord: 5.7ms | Allocations: 15943)
+
+
+Started PATCH "/join/7" for 127.0.0.1 at 2022-05-17 16:45:32 -0500
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#join as */*
+  Parameters: {"organisation_id"=>7, "id"=>"7", "user"=>{"organisation_id"=>7}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `join'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: join, request: #<ActionDispatch::Request:0x00000001078dd800>, params: {"organisation_id"=>7, "controller"=>"users", "action"=>"join", "id"=>"7", "user"=>{"organisation_id"=>7}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", 7], ["updated_at", "2022-05-17 21:45:32.588540"], ["id", 7]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" INNER JOIN "users" ON "shifts"."user_id" = "users"."id" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 7]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers] No serializer found for resource: #<Shift id: 1, user_id: 7, start: "2022-05-16 10:00:00.000000000 +0000", finish: "2022-05-14 15:00:00.000000000 +0000", break: 30, employee_name: "jen", created_at: "2022-05-17 19:16:18.158917000 +0000", updated_at: "2022-05-17 19:16:18.158917000 +0000">
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers]   [1m[36mOrganisation Load (2.4ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (16.33ms)
+Completed 200 OK in 32ms (Views: 15.2ms | ActiveRecord: 7.0ms | Allocations: 19182)
+
+
+Started PATCH "/leave_org/7" for 127.0.0.1 at 2022-05-17 16:45:33 -0500
+Processing by UsersController#leave_org as */*
+  Parameters: {"organisation_id"=>nil, "id"=>"7", "user"=>{"organisation_id"=>nil}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `leave_org'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: leave_org, request: #<ActionDispatch::Request:0x000000010c7cbe80>, params: {"organisation_id"=>nil, "controller"=>"users", "action"=>"leave_org", "id"=>"7", "user"=>{"organisation_id"=>nil}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", nil], ["updated_at", "2022-05-17 21:45:33.998084"], ["id", 7]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mShift Update All (0.6ms)[0m  [1m[33mUPDATE "shifts" SET "user_id" = ? WHERE "shifts"."user_id" = ?[0m  [["user_id", nil], ["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 2.0ms | Allocations: 5389)
+
+
+  
+ActiveRecord::NotNullViolation (SQLite3::ConstraintException: NOT NULL constraint failed: shifts.user_id):
+  
+app/controllers/users_controller.rb:32:in `leave_org'
+Started GET "/me" for 127.0.0.1 at 2022-05-17 16:45:35 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mShift Load (0.2ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] No serializer found for resource: #<Shift id: 1, user_id: 7, start: "2022-05-16 10:00:00.000000000 +0000", finish: "2022-05-14 15:00:00.000000000 +0000", break: 30, employee_name: "jen", created_at: "2022-05-17 19:16:18.158917000 +0000", updated_at: "2022-05-17 19:16:18.158917000 +0000">
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (10.83ms)
+Completed 200 OK in 26ms (Views: 12.1ms | ActiveRecord: 0.9ms | Allocations: 3988)
+
+
+Started PATCH "/join/7" for 127.0.0.1 at 2022-05-17 16:45:38 -0500
+Processing by UsersController#join as */*
+  Parameters: {"organisation_id"=>7, "id"=>"7", "user"=>{"organisation_id"=>7}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `join'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: join, request: #<ActionDispatch::Request:0x0000000108a208d8>, params: {"organisation_id"=>7, "controller"=>"users", "action"=>"join", "id"=>"7", "user"=>{"organisation_id"=>7}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", 7], ["updated_at", "2022-05-17 21:45:38.894115"], ["id", 7]]
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `join'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" INNER JOIN "users" ON "shifts"."user_id" = "users"."id" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 7]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers] No serializer found for resource: #<Shift id: 1, user_id: 7, start: "2022-05-16 10:00:00.000000000 +0000", finish: "2022-05-14 15:00:00.000000000 +0000", break: 30, employee_name: "jen", created_at: "2022-05-17 19:16:18.158917000 +0000", updated_at: "2022-05-17 19:16:18.158917000 +0000">
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `join'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (7.71ms)
+Completed 200 OK in 19ms (Views: 8.1ms | ActiveRecord: 2.0ms | Allocations: 9951)
+
+
+Started PATCH "/leave_org/7" for 127.0.0.1 at 2022-05-17 16:45:40 -0500
+Processing by UsersController#leave_org as */*
+  Parameters: {"organisation_id"=>nil, "id"=>"7", "user"=>{"organisation_id"=>nil}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `leave_org'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: leave_org, request: #<ActionDispatch::Request:0x000000012b8ffd50>, params: {"organisation_id"=>nil, "controller"=>"users", "action"=>"leave_org", "id"=>"7", "user"=>{"organisation_id"=>nil}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? AND "users"."id" != ? LIMIT ?[0m  [["name", "Jen"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "organisation_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organisation_id", nil], ["updated_at", "2022-05-17 21:45:40.253969"], ["id", 7]]
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `leave_org'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mShift Update All (0.2ms)[0m  [1m[33mUPDATE "shifts" SET "user_id" = ? WHERE "shifts"."user_id" = ?[0m  [["user_id", nil], ["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:32:in `leave_org'
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 2.3ms | Allocations: 5370)
+
+
+  
+ActiveRecord::NotNullViolation (SQLite3::ConstraintException: NOT NULL constraint failed: shifts.user_id):
+  
+app/controllers/users_controller.rb:32:in `leave_org'
+Started GET "/me" for 127.0.0.1 at 2022-05-17 16:45:41 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mShift Load (0.2ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 7]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] No serializer found for resource: #<Shift id: 1, user_id: 7, start: "2022-05-16 10:00:00.000000000 +0000", finish: "2022-05-14 15:00:00.000000000 +0000", break: 30, employee_name: "jen", created_at: "2022-05-17 19:16:18.158917000 +0000", updated_at: "2022-05-17 19:16:18.158917000 +0000">
+[active_model_serializers]   [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (10.31ms)
+Completed 200 OK in 16ms (Views: 11.2ms | ActiveRecord: 0.7ms | Allocations: 3933)
+
+
