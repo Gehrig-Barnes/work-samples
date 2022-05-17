@@ -30900,3 +30900,458 @@ Processing by UsersController#show as */*
 Completed 200 OK in 30ms (Views: 20.2ms | ActiveRecord: 1.7ms | Allocations: 7586)
 
 
+Started DELETE "/logout" for 127.0.0.1 at 2022-05-17 11:59:07 -0500
+Processing by SessionsController#logout as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+Completed 204 No Content in 9ms (ActiveRecord: 0.6ms | Allocations: 642)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-05-17 11:59:13 -0500
+Processing by SessionsController#login as */*
+  Parameters: {"email"=>"s@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"s@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "s@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `login'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:11:in `all_shifts'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (3.4ms)
+Completed 500 Internal Server Error in 293ms (ActiveRecord: 0.8ms | Allocations: 2575)
+
+
+  
+NoMethodError (undefined method `users' for nil:NilClass):
+  
+app/serializers/user_serializer.rb:11:in `all_shifts'
+app/controllers/sessions_controller.rb:9:in `login'
+Started POST "/login" for 127.0.0.1 at 2022-05-17 11:59:18 -0500
+Processing by SessionsController#login as */*
+  Parameters: {"email"=>"s@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"s@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "s@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `login'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 401 Unauthorized in 289ms (Views: 2.2ms | ActiveRecord: 4.4ms | Allocations: 1456)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-05-17 11:59:21 -0500
+Processing by SessionsController#login as */*
+  Parameters: {"email"=>"s@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"s@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "s@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `login'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.36ms)
+Completed 401 Unauthorized in 358ms (Views: 6.5ms | ActiveRecord: 0.5ms | Allocations: 1347)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-05-17 12:00:10 -0500
+Processing by SessionsController#login as */*
+  Parameters: {"email"=>"hain@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"hain@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "hain@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `login'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:11:in `all_shifts'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (5.11ms)
+Completed 500 Internal Server Error in 302ms (ActiveRecord: 0.5ms | Allocations: 2444)
+
+
+  
+NoMethodError (undefined method `users' for nil:NilClass):
+  
+app/serializers/user_serializer.rb:11:in `all_shifts'
+app/controllers/sessions_controller.rb:9:in `login'
+Started POST "/login" for 127.0.0.1 at 2022-05-17 12:00:25 -0500
+Processing by SessionsController#login as */*
+  Parameters: {"email"=>"j@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"j@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "j@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `login'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 401 Unauthorized in 9ms (Views: 2.8ms | ActiveRecord: 0.3ms | Allocations: 1310)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-05-17 12:00:30 -0500
+Processing by SessionsController#login as */*
+  Parameters: {"email"=>"j@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"j@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "j@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `login'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 401 Unauthorized in 5ms (Views: 2.2ms | ActiveRecord: 0.3ms | Allocations: 1297)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-17 12:01:03 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 9ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 6514)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-05-17 12:01:24 -0500
+Processing by SessionsController#login as */*
+  Parameters: {"email"=>"a@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"a@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "a@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `login'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:11:in `all_shifts'
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 13]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:11:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.2ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:11:in `flatten!'
+[active_model_serializers]   [1m[36mShift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 4]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:11:in `flatten!'
+[active_model_serializers]   [1m[36mCACHE Shift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 4]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:9:in `login'
+[active_model_serializers] No serializer found for resource: #<Shift id: 5, user_id: 4, start: nil, finish: nil, break: nil, created_at: "2022-05-17 16:55:10.162965000 +0000", updated_at: "2022-05-17 16:55:10.162965000 +0000">
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:9:in `login'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:9:in `login'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (22.27ms)
+Completed 200 OK in 343ms (Views: 31.0ms | ActiveRecord: 2.1ms | Allocations: 41809)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-05-17 12:01:28 -0500
+Processing by SessionsController#logout as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+Completed 204 No Content in 2ms (ActiveRecord: 0.3ms | Allocations: 621)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-05-17 12:01:34 -0500
+Processing by SessionsController#login as */*
+  Parameters: {"email"=>"jen@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"jen@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jen@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `login'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:11:in `all_shifts'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 13]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:11:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:11:in `flatten!'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 4]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:11:in `flatten!'
+[active_model_serializers]   [1m[36mCACHE Shift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:9:in `login'
+[active_model_serializers] No serializer found for resource: #<Shift id: 1, user_id: 1, start: "2022-05-14 10:00:00.000000000 +0000", finish: "2022-05-14 15:00:00.000000000 +0000", break: 30, created_at: "2022-05-15 17:58:03.512292000 +0000", updated_at: "2022-05-15 17:58:03.512292000 +0000">
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:9:in `login'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:9:in `login'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (10.32ms)
+Completed 200 OK in 307ms (Views: 17.2ms | ActiveRecord: 1.4ms | Allocations: 7501)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-05-17 12:01:38 -0500
+Processing by SessionsController#logout as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+Completed 204 No Content in 2ms (ActiveRecord: 0.2ms | Allocations: 624)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-05-17 12:01:49 -0500
+Processing by SessionsController#login as */*
+  Parameters: {"email"=>"s@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"s@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "s@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `login'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:11:in `all_shifts'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (2.52ms)
+Completed 500 Internal Server Error in 285ms (ActiveRecord: 0.7ms | Allocations: 2456)
+
+
+  
+NoMethodError (undefined method `users' for nil:NilClass):
+  
+app/serializers/user_serializer.rb:11:in `all_shifts'
+app/controllers/sessions_controller.rb:9:in `login'
+Started POST "/login" for 127.0.0.1 at 2022-05-17 12:02:24 -0500
+Processing by SessionsController#login as */*
+  Parameters: {"email"=>"a@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"a@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "a@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `login'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:11:in `all_shifts'
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."organisation_id" = ?[0m  [["organisation_id", 13]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:11:in `map'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:11:in `flatten!'
+[active_model_serializers]   [1m[36mShift Load (0.2ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 4]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:11:in `flatten!'
+[active_model_serializers]   [1m[36mCACHE Shift Load (0.0ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 4]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:9:in `login'
+[active_model_serializers] No serializer found for resource: #<Shift id: 5, user_id: 4, start: nil, finish: nil, break: nil, created_at: "2022-05-17 16:55:10.162965000 +0000", updated_at: "2022-05-17 16:55:10.162965000 +0000">
+[active_model_serializers]   [1m[36mCACHE Organisation Load (0.0ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:9:in `login'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:9:in `login'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (13.37ms)
+Completed 200 OK in 294ms (Views: 14.0ms | ActiveRecord: 1.0ms | Allocations: 7264)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-05-17 12:02:27 -0500
+Processing by SessionsController#logout as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+Completed 204 No Content in 6ms (ActiveRecord: 0.2ms | Allocations: 611)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-05-17 12:03:05 -0500
+Processing by SessionsController#login as */*
+  Parameters: {"email"=>"g@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"g@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "g@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `login'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:11:in `all_shifts'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (2.65ms)
+Completed 500 Internal Server Error in 278ms (ActiveRecord: 0.4ms | Allocations: 2442)
+
+
+  
+NoMethodError (undefined method `users' for nil:NilClass):
+  
+app/serializers/user_serializer.rb:11:in `all_shifts'
+app/controllers/sessions_controller.rb:9:in `login'
+Started GET "/me" for 127.0.0.1 at 2022-05-17 12:03:20 -0500
+Processing by UsersController#show as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 11ms (Views: 0.9ms | ActiveRecord: 0.7ms | Allocations: 4716)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-05-17 12:03:29 -0500
+Processing by SessionsController#login as */*
+  Parameters: {"email"=>"g@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"g@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "g@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `login'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mShift Load (0.3ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:9:in `login'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (14.42ms)
+Completed 200 OK in 358ms (Views: 21.2ms | ActiveRecord: 2.1ms | Allocations: 6870)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-17 12:03:34 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (2.9ms)
+Completed 200 OK in 11ms (Views: 4.0ms | ActiveRecord: 0.5ms | Allocations: 2528)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 2]]
+Started GET "/me" for 127.0.0.1 at 2022-05-17 12:05:02 -0500
+Processing by UsersController#show as */*
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (21.46ms)
+Completed 200 OK in 46ms (Views: 27.6ms | ActiveRecord: 1.9ms | Allocations: 12286)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-17 12:05:17 -0500
+Processing by UsersController#show as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (9.38ms)
+Completed 200 OK in 30ms (Views: 11.1ms | ActiveRecord: 2.6ms | Allocations: 12296)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-17 12:05:30 -0500
+Processing by UsersController#show as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:11:in `all_shifts'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (5.67ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 2.2ms | Allocations: 9196)
+
+
+  
+NoMethodError (undefined method `users' for nil:NilClass):
+  
+app/serializers/user_serializer.rb:11:in `all_shifts'
+app/controllers/users_controller.rb:15:in `show'
+Started GET "/me" for 127.0.0.1 at 2022-05-17 12:06:40 -0500
+Processing by UsersController#show as */*
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (3.64ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 1.2ms | Allocations: 9238)
+
+
+  
+NameError (undefined local variable or method `session' for #<UserSerializer:0x0000000142dadf98>):
+  
+app/serializers/user_serializer.rb:11:in `all_shifts'
+app/controllers/users_controller.rb:15:in `show'
+Started GET "/me" for 127.0.0.1 at 2022-05-17 12:10:51 -0500
+Processing by UsersController#show as */*
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations" WHERE "organisations"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+[active_model_serializers]   ↳ app/serializers/user_serializer.rb:14:in `all_shifts'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (12.11ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 2.7ms | Allocations: 9278)
+
+
+  
+NoMethodError (undefined method `users' for nil:NilClass):
+  
+app/serializers/user_serializer.rb:14:in `all_shifts'
+app/controllers/users_controller.rb:15:in `show'
+Started GET "/me" for 127.0.0.1 at 2022-05-17 12:11:20 -0500
+Processing by UsersController#show as */*
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 1.2ms | Allocations: 6239)
+
+
+  
+SyntaxError (/Users/gehrig/code/work-samples/adnat (backend)/app/serializers/user_serializer.rb:11: syntax error, unexpected '?'
+...current_user.organisation_id =? nil
+...                              ^
+/Users/gehrig/code/work-samples/adnat (backend)/app/serializers/user_serializer.rb:13: else without rescue is useless
+    else
+    ^~~~
+/Users/gehrig/code/work-samples/adnat (backend)/app/serializers/user_serializer.rb:19: syntax error, unexpected `end', expecting end-of-input):
+  
+app/serializers/user_serializer.rb:11: syntax error, unexpected '?'
+app/serializers/user_serializer.rb:13: else without rescue is useless
+app/serializers/user_serializer.rb:19: syntax error, unexpected `end', expecting end-of-input
+app/serializers/user_serializer.rb:11: syntax error, unexpected '?'
+app/serializers/user_serializer.rb:13: else without rescue is useless
+app/serializers/user_serializer.rb:19: syntax error, unexpected `end', expecting end-of-input
+app/controllers/users_controller.rb:15:in `show'
+Started GET "/me" for 127.0.0.1 at 2022-05-17 12:11:27 -0500
+Processing by UsersController#show as */*
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mShift Load (0.2ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (11.75ms)
+Completed 200 OK in 27ms (Views: 13.0ms | ActiveRecord: 2.3ms | Allocations: 12341)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-17 12:11:39 -0500
+Processing by UsersController#show as */*
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mShift Load (0.1ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (0.2ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (11.78ms)
+Completed 200 OK in 41ms (Views: 13.1ms | ActiveRecord: 3.4ms | Allocations: 12299)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-17 12:13:14 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers]   [1m[36mShift Load (0.2ms)[0m  [1m[34mSELECT "shifts".* FROM "shifts" WHERE "shifts"."user_id" = ?[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers]   [1m[36mOrganisation Load (0.1ms)[0m  [1m[34mSELECT "organisations".* FROM "organisations"[0m
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:15:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (5.2ms)
+Completed 200 OK in 13ms (Views: 7.0ms | ActiveRecord: 0.9ms | Allocations: 3343)
+
+

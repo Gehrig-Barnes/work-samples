@@ -8,7 +8,12 @@ class UserSerializer < ActiveModel::Serializer
   end
 
   def all_shifts
-    Organisation.find_by_id(current_user.organisation_id).users.map{|user| user.shifts}.flatten!
+    if current_user.organisation_id == nil
+      puts "no shifts"
+    else
+      Organisation.find_by_id(current_user.organisation_id).users.map{|user| user.shifts}.flatten!
+    end
+    
   end
 
 end
