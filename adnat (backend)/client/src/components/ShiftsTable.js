@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CreateShift from "./CreateShift";
 import '../App.css'
 
 function ShiftsTable ({shifts}){
@@ -40,6 +41,7 @@ function ShiftsTable ({shifts}){
                     ))}
                 </tbody>
             </table>
+            <CreateShift/>
         </div>
     )
 }

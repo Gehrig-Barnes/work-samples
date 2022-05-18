@@ -1,6 +1,6 @@
 class Shift < ApplicationRecord
   belongs_to :user
-  belongs_to :organisation
+  
 
   def hours_worked
     hours = (finish - start) / 3600
