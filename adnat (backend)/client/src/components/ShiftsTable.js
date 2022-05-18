@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CreateShift from "./CreateShift";
 import '../App.css'
 
-function ShiftsTable ({shifts}){
+function ShiftsTable ({shifts, userId, userName, setUser}){
 
     // const timeStamp = Date.parse(shifts[0].start)
     // const date = new Date(timeStamp)
@@ -41,7 +41,7 @@ function ShiftsTable ({shifts}){
                     ))}
                 </tbody>
             </table>
-            <CreateShift/>
+            <CreateShift userId={userId} userName={userName}/>
         </div>
     )
 }

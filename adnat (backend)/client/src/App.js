@@ -68,7 +68,12 @@ function App() {
         <button>Edit</button>
         <button onClick={() => leaveOrg()}>Leave</button>
         <div>
-          <ShiftsTable shifts={user.all_shifts}/>
+          <ShiftsTable 
+            shifts={user.all_shifts} 
+            userId={user.id} 
+            userName={user.name} 
+            setUser={setUser}
+          />
         </div>
       </div>
       )
