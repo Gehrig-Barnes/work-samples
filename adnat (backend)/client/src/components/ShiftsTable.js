@@ -27,7 +27,7 @@ function ShiftsTable({ shifts, userId, userName }) {
         </thead>
         <tbody>
           {shifts.map((shift) => (
-            <tr>
+            <tr key={shift.id}>
               <td>{shift.employee_name}</td>
               <td>{`${new Date(Date.parse(shift.start)).toDateString()}`}</td>
               <td>{`${new Date(
