@@ -17,5 +17,7 @@ class UserSerializer < ActiveModel::Serializer
     end
   end
 
+
+
   ##create a shift serializer and use it above
 end

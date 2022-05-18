@@ -1,26 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route, useNavigate, NavLink } from "react-router-dom";
-import Login from './components/Login'
+import Login from "./components/Login";
 import Organizations from "./components/Organizations";
 import EditOrg from "./components/EditOrg";
 import CreateOrg from "./components/CreateOrg";
-import ShiftsTable from "./components/ShiftsTable"
-
-//EVENTUAL TO_DOS
-//create validations
-
+import ShiftsTable from "./components/ShiftsTable";
 
 //TO_DO
-//When a user has an Org, we need to Render the page with the Org name.
-//underneath will have three different buttons. 1) View Shift 2) Edit 3)Leave
-//for view shift, we have to create a component called shift
-//leave, we just have to create a button that allows us to patch organization_id
+//create validations
+//create a way for users to edit their date, times, and breaks
+//and then you're done
 function App() {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null);
   const [showEditForm, setShowEditForm] = useState({
     show: false,
-    org: null
-  })
+    org: null,
+  });
 
   useEffect(() => {
     // auto-login
@@ -31,83 +26,77 @@ function App() {
     });
   }, []);
 
-  function handleLogOutClick(){
-    fetch("/logout",{
-        method: "DELETE"
+  function handleLogOutClick() {
+    fetch("/logout", {
+      method: "DELETE",
     }).then((r) => {
-        if(r.ok){
-            setUser(null);
-        }
+      if (r.ok) {
+        setUser(null);
+      }
     });
   }
-  console.log(user)
+  console.log(user);
   // console.log(user.id)
-  function leaveOrg(){
+  function leaveOrg() {
     fetch(`/leave_org/${user.id}`, {
-      method: 'PATCH',
+      method: "PATCH",
       body: JSON.stringify({
-        organisation_id: null
+        organisation_id: null,
       }),
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     })
-    .then((r) => r.json())
-    .then((data) => setUser(data))
+      .then((r) => r.json())
+      .then((data) => setUser(data));
   }
 
- 
-  function renderSelectOrg () {
-    const  {organisation_id } = user
-    if(organisation_id){
+  function renderSelectOrg() {
+    const { organisation_id } = user;
+    if (organisation_id) {
       return (
-      <div>
-        <h2>Logged in as, {user.name}</h2>
-        <h1>{user.organisation.name}</h1>
-        <button>View Shift</button>
-        <button>Edit</button>
-        <button onClick={() => leaveOrg()}>Leave</button>
         <div>
-          <ShiftsTable 
-            shifts={user.all_shifts} 
-            userId={user.id} 
-            userName={user.name} 
-            setUser={setUser}
-          />
+          <h2>Logged in as, {user.name}</h2>
+          <h1>{user.organisation.name}</h1>
+          <button>View Shift</button>
+          <button>Edit</button>
+          <button onClick={() => leaveOrg()}>Leave</button>
+          <div>
+            <ShiftsTable
+              shifts={user.all_shifts}
+              userId={user.id}
+              userName={user.name}
+              setUser={setUser}
+            />
+          </div>
         </div>
-      </div>
-      )
+      );
     }
 
-    return (!showEditForm.show ? 
-    
-    <>
-      <Organizations 
-        setShowEditForm={setShowEditForm} 
-        user={user}
-        setUser={setUser}
-      />
+    return !showEditForm.show ? (
+      <>
+        <Organizations
+          setShowEditForm={setShowEditForm}
+          user={user}
+          setUser={setUser}
+        />
 
-      <CreateOrg setUser={setUser}/> 
-
-    </>: 
-    
-    <EditOrg 
-      setShowEditForm={setShowEditForm} 
-      org={showEditForm.org}
-    /> )
+        <CreateOrg setUser={setUser} />
+      </>
+    ) : (
+      <EditOrg setShowEditForm={setShowEditForm} org={showEditForm.org} />
+    );
   }
 
-if (!user) return (
-  <>
-  <Login onLogin={setUser}/>
-  </>
-)
-
+  if (!user)
+    return (
+      <>
+        <Login onLogin={setUser} />
+      </>
+    );
 
   return (
     <div className="App">
-      hello world
       <button onClick={handleLogOutClick}>Logout</button>
       {renderSelectOrg()}
     </div>
