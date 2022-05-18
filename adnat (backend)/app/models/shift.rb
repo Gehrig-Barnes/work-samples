@@ -1,10 +1,9 @@
 class Shift < ApplicationRecord
   belongs_to :user
 
-  validates :user_id, presence: true
   validates :start, presence: true
   validates :finish, presence: true
-  validates :finish, greater_than: :start
+  validates_comparison_of :finish, greater_than: :start, other_than: Date.today
   validates :break, presence: true
   validates :employee_name, presence: true
   
