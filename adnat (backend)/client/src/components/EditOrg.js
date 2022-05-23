@@ -41,7 +41,6 @@ function EditOrg({ setShowEditForm, org }) {
     })
       .then((r) => r.json())
       .then((message) => console.log(message))
-      .then(window.location.reload());
   }
 
   return (

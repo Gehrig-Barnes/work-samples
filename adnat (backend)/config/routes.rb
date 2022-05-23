@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :shifts
   resources :organisations
   resources :users
-
+  
   get "/me", to: "users#show"
 
   post "/signup", to: "users#create"

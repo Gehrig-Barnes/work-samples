@@ -36,7 +36,6 @@ function App() {
     });
   }
   console.log(user);
-  // console.log(user.id)
   function leaveOrg() {
     fetch(`/leave_org/${user.id}`, {
       method: "PATCH",

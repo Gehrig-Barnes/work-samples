@@ -18,7 +18,7 @@ class OrganisationsController < ApplicationController
         ##.where
         old_org = Organisation.find(params[:id])
         if User.all.pluck(:organisation_id).include?(old_org.id)
-            render json: "can't delete", status: :ok
+            render json: {error: "can't delete"}, status: :ok
         else
             old_org.destroy
         end

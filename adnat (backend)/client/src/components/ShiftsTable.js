@@ -38,7 +38,7 @@ function ShiftsTable({ shifts, userId, userName }) {
               ).toLocaleTimeString()}`}</td>
               <td>{shift.break}</td>
               <td>{shift.hours_worked}</td>
-              <td>${shift.shift_cost}</td>
+              <td>${(shift.shift_cost) - (shift.break/60)}</td>
             </tr>
           ))}
         </tbody>
